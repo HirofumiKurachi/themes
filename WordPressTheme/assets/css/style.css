@@ -3859,7 +3859,7 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 	width: 100%;
 }
 
-.site-map-menu__sub {
+.site-map-menu__link-sub {
 	color: #000;
 	display: flex;
 	font-size: 1rem;
