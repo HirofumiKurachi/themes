@@ -13,14 +13,8 @@
   </div>
 </section>
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__innner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>ダイビング情報</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--タブ-->
 <div class="information-page information-page-top">
   <div class="information-page__inner inner">

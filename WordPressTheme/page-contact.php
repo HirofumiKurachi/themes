@@ -15,14 +15,8 @@
 </section>
 
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>お問い合わせ</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--お問い合わせ-->
 <section class="contact-page contact-page-top">
   <div class="contact-page__inner inner">

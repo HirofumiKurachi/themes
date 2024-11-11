@@ -12,15 +12,10 @@
     </picture>
   </div>
 </section>
+
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>ブログ一覧</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--ブログ-->
 <section class="blog-page blog-page-top">
   <div class="blog-page__inner inner">

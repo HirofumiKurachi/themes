@@ -12,15 +12,10 @@
     </picture>
   </div>
 </section>
+
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>サイトマップ</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--サイトマップ-->
 <section class="site-map-page site-map-page-top">
   <div class="site-map-page__inner inner">

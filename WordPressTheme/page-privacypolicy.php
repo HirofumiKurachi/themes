@@ -12,15 +12,10 @@
     </picture>
   </div>
 </section>
+
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__innner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>プライバシーポリシー</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--プライバシー-->
 <section class="privacy-page privacy-page-top">
   <div class="privacy-page__inner inner">

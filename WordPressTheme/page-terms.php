@@ -12,15 +12,10 @@
     </picture>
   </div>
 </section>
+
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>利用規約</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--利用規約-->
 <section class="terms-page terms-page-top">
   <div class="terms-page__inner inner">

@@ -13,17 +13,7 @@
   </div>
 </section>
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>
-      <a href="./"><span>ブログ一覧</span></a>
-    </span>
-    <span>ブログ詳細</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
 
 <?php if (have_posts()):
       while (have_posts()):

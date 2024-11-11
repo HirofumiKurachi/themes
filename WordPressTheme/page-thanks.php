@@ -13,18 +13,10 @@
     </picture>
   </div>
 </section>
+
 <!--パンくず-->
-<div class="breadcrumb breadcrumb-top">
-  <div class="breadcrumb__inner inner">
-    <span>
-      <a href="./"><span>TOP</span></a>
-    </span>
-    <span>
-      <a href="./"><span>お問い合わせ</span></a>
-    </span>
-    <span>送信完了</span>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb') ?>
+
 <!--サンクス-->
 <section class="thanks-pagee thanks-page-top">
   <div class="thanks-page__inner inner">
