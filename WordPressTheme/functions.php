@@ -118,16 +118,4 @@ add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles_and_scripts');
 
     add_action( 'admin_menu', 'change_post_label' );
     add_action( 'init', 'change_post_object_label' );
-
-//     // wp_pagenavi フィルターによるクラス追加
-// add_filter('wp_pagenavi', function($html) {
-//     // 「前へ」のリンクにpreviouspostslinkクラスを追加
-//     $html = str_replace('class="prev page-numbers"', 'class="prev page-numbers previouspostslink"', $html);
-
-//     // 「次へ」のリンクにnextpostslinkクラスを追加
-//     $html = str_replace('class="next page-numbers"', 'class="next page-numbers nextpostslink"', $html);
-
-//     return $html;
-// });
-
 ?>
