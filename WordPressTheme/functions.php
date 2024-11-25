@@ -70,6 +70,26 @@ function my_theme_enqueue_styles_and_scripts() {
     );
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles_and_scripts');
+
+function modify_posts_per_page_for_archives( $query ) {
+    // 管理画面やメインクエリ以外には適用しない
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    // archive-campaign.php 用の表示数を設定
+    if ( is_post_type_archive( 'campaign' ) ) {
+        $query->set( 'posts_per_page', 4 ); // 1ページに5件表示
+    }
+
+    // archive-voice.php 用の表示数を設定
+    if ( is_post_type_archive( 'voice' ) ) {
+        $query->set( 'posts_per_page', 6 ); // 1ページに10件表示
+    }
+}
+add_action( 'pre_get_posts', 'modify_posts_per_page_for_archives' );
+
+
     //アイキャッチ等の設定
     function my_setup()
     {

@@ -41,7 +41,7 @@
             <div class="voice-card__title-box">
               <div class="voice-card__title-box1">
                 <p class="voice-card__title-sub">20代(女性)</p>
-                <p class="voice-card__title">ライセンス講習</p>
+                <p class="voice-card__title"><?php the_title(); ?></p>
               </div>
               <div class="voice-card__title-box2">
                 <p class="voice-card__title-text">ここにタイトルが入ります。ここにタイトル</p>
@@ -63,16 +63,7 @@
     </div>
     <div class="voice-page__pagination voice-page-pagination-top pagination">
       <div class="pagination__inner inner">
-        <div class="pagination__nav">
-          <a class="pagination__prev" href="#"></a>
-          <span class="pagination__current">1</span>
-          <a class="pagination__larger" href="#">2</a>
-          <a class="pagination__larger" href="#">3</a>
-          <a class="pagination__larger" href="#">4</a>
-          <a class="pagination__larger md-none" href="#">5</a>
-          <a class="pagination__larger md-none" href="#">6</a>
-          <a class="pagination__next" href="#"></a>
-        </div>
+        <?php wp_pagenavi(); ?>
       </div>
     </div>
   </div>

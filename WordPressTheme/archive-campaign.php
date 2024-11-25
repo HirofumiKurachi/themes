@@ -70,16 +70,7 @@
 </section>
 <div class="pagination pagination-top">
   <div class="pagination__inner inner">
-    <div class="pagination__nav">
-      <a class="pagination__prev" href="#"></a>
-      <span class="pagination__current">1</span>
-      <a class="pagination__larger" href="#">2</a>
-      <a class="pagination__larger" href="#">3</a>
-      <a class="pagination__larger" href="#">4</a>
-      <a class="pagination__larger md-none" href="#">5</a>
-      <a class="pagination__larger md-none" href="#">6</a>
-      <a class="pagination__next" href="#"></a>
-    </div>
+    <?php wp_pagenavi(); ?>
   </div>
 </div>
 <!--コンタクト-->
