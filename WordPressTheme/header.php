@@ -12,7 +12,7 @@
 <body>
   <header class="header js-header">
     <div class="header__inner">
-      <a href="index.html" class="header__name-layout">
+      <a href="<?php echo esc_url(home_url('/')); ?>top" class="header__name-layout">
         <h1 class="header__name">
           <img class="logo" src="<?php echo get_theme_file_uri(); ?>/assets/images/logo.svg" alt="CodeUps" />
         </h1>
@@ -20,7 +20,7 @@
       <nav class="header__nav md-none">
         <ul class="header__items">
           <li class="header__item">
-            <a class="header__link" href="campaign-page.html"><span>Campaign</span>キャンペーン</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>campaign"><span>Campaign</span>キャンペーン</a>
           </li>
           <li class="header__item">
             <a class="header__link" href="aboutus-page.html"><span>About us</span>私たちについて</a>
@@ -33,7 +33,7 @@
             <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>blog"><span>Blog</span>ブログ</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="voice-page.html"><span>Voice</span>お客様の声</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>voice"><span>Voice</span>お客様の声</a>
           </li>
           <li class="header__item">
             <a class="header__link" href="price-page.html"><span>Price</span>料金一覧</a>
