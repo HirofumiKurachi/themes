@@ -21,10 +21,12 @@
   <div class="about-us-page__inner inner">
     <div class="about-us-page__img">
       <div class="about-us-page__img-small md-none">
-        <img src="./assets/images/aboutus-img1.jpg" alt="屋根の上にシーサーの置物がおいてある様子" class="about-us-page__img1" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/aboutus-img1.jpg" alt="屋根の上にシーサーの置物がおいてある様子"
+          class="about-us-page__img1" />
       </div>
       <div class="about-us-page__img-big">
-        <img src="./assets/images/aboutus-img3.jpg" alt="2匹の黄色い魚が海中を泳いでいる様子" class="about-us-page__img2" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/aboutus-img3.jpg" alt="2匹の黄色い魚が海中を泳いでいる様子"
+          class="about-us-page__img2" />
       </div>
     </div>
     <div class="about-us-page__container">
@@ -46,22 +48,22 @@
     </div>
     <ul class="gallery__list gallery-list">
       <li class="gallery-list__item js-modal-open" data-target="1">
-        <img src="./assets/images/gallery1.jpg" alt="珊瑚礁の周りをオレンジ色の魚達が泳いでいる様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery1.jpg" alt="珊瑚礁の周りをオレンジ色の魚達が泳いでいる様子" />
       </li>
       <li class="gallery-list__item js-modal-open" data-target="2">
-        <img src="./assets/images/gallery2.jpg" alt="綺麗な海に船が3隻停泊している様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery2.jpg" alt="綺麗な海に船が3隻停泊している様子" />
       </li>
       <li class="gallery-list__item js-modal-open" data-target="3">
-        <img src="./assets/images/gallery3.jpg" alt="2匹の熱帯魚が泳いでいる様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery3.jpg" alt="2匹の熱帯魚が泳いでいる様子" />
       </li>
       <li class="gallery-list__item js-modal-open" data-target="4">
-        <img src="./assets/images/gallery4.jpg" alt="1匹の熱帯魚が泳いでいる様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery4.jpg" alt="1匹の熱帯魚が泳いでいる様子" />
       </li>
       <li class="gallery-list__item js-modal-open" data-target="5">
-        <img src="./assets/images/gallery5.jpg" alt="熱帯魚が群れで泳いでいる様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery5.jpg" alt="熱帯魚が群れで泳いでいる様子" />
       </li>
       <li class="gallery-list__item js-modal-open" data-target="6">
-        <img src="./assets/images/gallery6.jpg" alt="珊瑚礁の周りを黄色い魚が泳いでいる様子" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery6.jpg" alt="珊瑚礁の周りを黄色い魚が泳いでいる様子" />
       </li>
     </ul>
   </div>
@@ -71,42 +73,42 @@
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-1">
         <div class="gallery-modal__inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery1.jpg" alt="珊瑚礁の周りをオレンジ色の魚達が泳いでいる様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery1.jpg" alt="珊瑚礁の周りをオレンジ色の魚達が泳いでいる様子" />
           </div>
         </div>
       </li>
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-2">
         <div class="gallery-modal__inner inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery2.jpg" alt="綺麗な海に船が3隻停泊している様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery2.jpg" alt="綺麗な海に船が3隻停泊している様子" />
           </div>
         </div>
       </li>
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-3">
         <div class="gallery-modal__inner inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery3.jpg" alt="2匹の熱帯魚が泳いでいる様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery3.jpg" alt="2匹の熱帯魚が泳いでいる様子" />
           </div>
         </div>
       </li>
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-4">
         <div class="gallery-modal__inner inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery4.jpg" alt="1匹の熱帯魚が泳いでいる様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery4.jpg" alt="1匹の熱帯魚が泳いでいる様子" />
           </div>
         </div>
       </li>
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-5">
         <div class="gallery-modal__inner inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery5.jpg" alt="熱帯魚が群れで泳いでいる様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery5.jpg" alt="熱帯魚が群れで泳いでいる様子" />
           </div>
         </div>
       </li>
       <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-6">
         <div class="gallery-modal__inner inner">
           <div class="gallery-modal__img">
-            <img src="./assets/images/gallery6.jpg" alt="珊瑚礁の周りを黄色い魚が泳いでいる様子" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/gallery6.jpg" alt="珊瑚礁の周りを黄色い魚が泳いでいる様子" />
           </div>
         </div>
       </li>
@@ -121,7 +123,7 @@
       <div class="contact__box contact-box">
         <a href="index.html" class="contact-box__logo-layout">
           <h3 class="contact-box__logo">
-            <img src="./assets/images/contact-logo.svg" alt="CodeUps" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/contact-logo.svg" alt="CodeUps" />
           </h3>
         </a>
         <div class="contact-box__information">
@@ -163,7 +165,7 @@
         </div>
         <div class="contact__top-button js-top-button">
           <a href="">
-            <img src="./assets/images/contact-top-button.svg" alt="トップボタン">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/contact-top-button.svg" alt="トップボタン">
           </a>
         </div>
       </div>

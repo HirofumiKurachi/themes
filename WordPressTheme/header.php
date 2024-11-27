@@ -23,9 +23,10 @@
             <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>campaign"><span>Campaign</span>キャンペーン</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="aboutus-page.html"><span>About us</span>私たちについて</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>about-us"><span>About
+                us</span>私たちについて</a>
           </li>
-          <li class="header__item">
+          <li class=" header__item">
             <a class="header__link"
               href="<?php echo esc_url(home_url('/')); ?>information"><span>Information</span>ダイビング情報</a>
           </li>
