@@ -40,7 +40,7 @@
           <div class="voice-card__container">
             <div class="voice-card__title-box">
               <div class="voice-card__title-box1">
-                <p class="voice-card__title-sub">20代(女性)</p>
+                <p class="voice-card__title-sub"><?php the_field('title_sub') ?></p>
                 <p class="voice-card__title"><?php the_title(); ?></p>
               </div>
               <div class="voice-card__title-box2">
