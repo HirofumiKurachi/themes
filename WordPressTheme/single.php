@@ -15,9 +15,6 @@
 <!--パンくず-->
 <?php get_template_part('parts/breadcrumb') ?>
 
-<?php if (have_posts()):
-      while (have_posts()):
-       the_post(); ?>
 
 
 <!--ブログ-->
@@ -25,6 +22,9 @@
   <div class="blog-page__inner inner">
     <div class="blog-page__container blog-page-container">
       <div class="blog-page-container__left">
+        <?php if (have_posts()):
+      while (have_posts()):
+       the_post(); ?>
         <div class="blog-page-container__cards blog-cards-detail">
           <div class="blog-cards-detail__title">
             <time class="blog-cards-detail__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
