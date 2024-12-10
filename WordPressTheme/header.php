@@ -37,10 +37,10 @@
             <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>voice"><span>Voice</span>お客様の声</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="price-page.html"><span>Price</span>料金一覧</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>price"><span>Price</span>料金一覧</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="faq-page.html"><span>FAQ</span>よくある質問</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>faq"><span>FAQ</span>よくある質問</a>
           </li>
           <li class="header__item">
             <a class="header__link" href="contact-page.html"><span>Contact</span>お問合せ</a>
