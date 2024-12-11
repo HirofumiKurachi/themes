@@ -5719,7 +5719,7 @@ html {
 
 .price__inner::after {
 	background: url(./../images/prco-logo.svg) center center/contain no-repeat;
-	bottom: -4.5%;
+	bottom: -19.5%;
 	content: "";
 	height: 12.5625rem;
 	left: calc(50% - min(48vw, 38.75rem));
