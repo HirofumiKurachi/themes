@@ -336,61 +336,128 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/price-img2.jpg" alt="ウミガメが海中を移動している様子" />
         </div>
         <div class="price__items">
+          <?php
+          // 固定ページ ID を指定 (例: 174)
+          $page_price_id = 174;
+
+         // SCFからライセンス講習データを取得
+         $license_courses = SCF::get('license_courses', $page_price_id);
+          ?>
+
           <div class="price__items-item price-item">
             <h3 class="price-item__title">ライセンス講習</h3>
+
+            <?php if (!empty($license_courses)): ?>
             <dl class="price-item__box">
-              <dt class="price-item__text">オープンウォーターダイバーコース</dt>
-              <dd class="price-item__text-sub">¥50,000</dd>
-              <dt class="price-item__text">アドバンスドオープンウォーターコース</dt>
-              <dd class="price-item__text-sub">¥60,000</dd>
-              <dt class="price-item__text">レスキュー＋FERコース</dt>
-              <dd class="price-item__text-sub">¥70,000</dd>
+              <?php foreach ($license_courses as $item): ?>
+              <?php 
+            // 数値変換用に不要な文字を削除
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']); 
+            $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
+            ?>
+
+              <dt class="price-item__text">
+                <?php echo esc_html($item['course_name-1']); ?>
+              </dt>
+              <dd class="price-item__text-sub">¥<?php echo esc_html($formatted_price); ?></dd>
+              <?php endforeach; ?>
             </dl>
+            <?php endif; ?>
           </div>
+          <?php
+          // 固定ページ ID を指定 (例: 174)
+          $page_price_id = 174;
+
+         // SCFから体験ダイビングデータを取得
+         $experience_diving = SCF::get('experience_diving', $page_price_id);
+          ?>
+
           <div class="price__items-item price-item">
             <h3 class="price-item__title">体験ダイビング</h3>
+
+            <?php if (!empty($experience_diving)): ?>
             <dl class="price-item__box">
-              <dt class="price-item__text">ビーチ体験ダイビング(半日)</dt>
-              <dd class="price-item__text-sub">¥7,000</dd>
-              <dt class="price-item__text">ビーチ体験ダイビング(1日)</dt>
-              <dd class="price-item__text-sub">¥14,000</dd>
-              <dt class="price-item__text">ボート体験ダイビング(半日)</dt>
-              <dd class="price-item__text-sub">¥10,000</dd>
-              <dt class="price-item__text">ボート体験ダイビング(1日)</dt>
-              <dd class="price-item__text-sub">¥18,000</dd>
+              <?php foreach ($experience_diving as $item): ?>
+              <?php 
+            // 数値変換用に不要な文字を削除
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-2']); 
+            $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
+            ?>
+
+              <dt class="price-item__text">
+                <?php echo esc_html($item['course_name-2']); ?>
+              </dt>
+              <dd class="price-item__text-sub">¥<?php echo esc_html($formatted_price); ?></dd>
+              <?php endforeach; ?>
             </dl>
+            <?php endif; ?>
           </div>
+          <?php
+          // 固定ページ ID を指定 (例: 174)
+          $page_price_id = 174;
+
+         // SCFかファンダイビングfデータを取得
+         $fun_diving = SCF::get('fun_diving', $page_price_id);
+          ?>
+
           <div class="price__items-item price-item">
             <h3 class="price-item__title">ファンダイビング</h3>
+
+            <?php if (!empty($fun_diving)): ?>
             <dl class="price-item__box">
-              <dt class="price-item__text">ビーチダイビング(2ダイブ)</dt>
-              <dd class="price-item__text-sub">¥14,000</dd>
-              <dt class="price-item__text">ボートダイビング(2ダイブ)</dt>
-              <dd class="price-item__text-sub">¥18,000</dd>
-              <dt class="price-item__text">スペシャルダイビング(2ダイブ)</dt>
-              <dd class="price-item__text-sub">¥24,000</dd>
-              <dt class="price-item__text">ナイトダイビング(1ダイブ)</dt>
-              <dd class="price-item__text-sub">¥10,000</dd>
+              <?php foreach ($fun_diving as $item): ?>
+              <?php 
+            // 数値変換用に不要な文字を削除
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-3']); 
+            $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
+            ?>
+
+              <dt class="price-item__text">
+                <?php echo esc_html($item['course_name-3']); ?>
+              </dt>
+              <dd class="price-item__text-sub">¥<?php echo esc_html($formatted_price); ?></dd>
+              <?php endforeach; ?>
             </dl>
+            <?php endif; ?>
           </div>
+          <?php
+          // 固定ページ ID を指定 (例: 174)
+          $page_price_id = 174;
+
+         // SCFからスペシャルダイビングデータを取得
+         $special_diving = SCF::get('special_diving', $page_price_id);
+          ?>
+
           <div class="price__items-item price-item">
             <h3 class="price-item__title">スペシャルダイビング</h3>
+
+            <?php if (!empty($special_diving)): ?>
             <dl class="price-item__box">
-              <dt class="price-item__text">貸切ダイビング(2ダイブ)</dt>
-              <dd class="price-item__text-sub">¥24,000</dd>
-              <dt class="price-item__text">1日ダイビング(3ダイブ)</dt>
-              <dd class="price-item__text-sub">¥32,000</dd>
+              <?php foreach ($special_diving as $item): ?>
+              <?php 
+            // 数値変換用に不要な文字を削除
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-4']); 
+            $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
+            ?>
+
+              <dt class="price-item__text">
+                <?php echo esc_html($item['course_name-4']); ?>
+              </dt>
+              <dd class="price-item__text-sub">¥<?php echo esc_html($formatted_price); ?></dd>
+              <?php endforeach; ?>
             </dl>
+            <?php endif; ?>
           </div>
         </div>
         <div class="price__img-pc md-none colorbox">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/price-img1.jpg" alt="ウミガメが海中を移動している様子" />
         </div>
       </div>
-      <div class="price__button-layout">
-        <a href="price-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-            class="button-arrow"></span> </a>
-      </div>
+    </div>
+    <div class="price__button-layout">
+      <a href="price-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
+          class="button-arrow"></span> </a>
+    </div>
     </div>
   </section>
   <!--コンタクト-->

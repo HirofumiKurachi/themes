@@ -24,16 +24,16 @@
         <h2 class="price-page-item__head-sp">ライセンス講習</h2>
         <h2 class="price-page-item__head-pc">ライセンス講習</h2>
         <?php
-// 繰り返しフィールドを取得
-$license_courses = SCF::get('license_courses');
-?>
+        // 繰り返しフィールドを取得
+         $license_courses = SCF::get('license_courses');
+        ?>
         <?php if (!empty($license_courses)): ?>
         <table class="price-page-item__box price-page-box">
           <?php foreach ($license_courses as $item): ?>
-          <?php 
-    // 数値変換用に不要な文字を削除
-    $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']); 
-    ?>
+          <?php
+         // 数値変換用に不要な文字を削除
+           $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']); 
+          ?>
           <tr>
             <td class="price-page-box__name">
               <?php echo esc_html($item['course_name-1']); ?>
