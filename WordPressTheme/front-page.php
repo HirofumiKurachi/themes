@@ -9,39 +9,29 @@
       </div>
       <div class="mv__slider swiper js-mv-swiper">
         <div class="mv__slider swiper-wrapper">
+          <?php
+        $slider_images = SCF::get('mv_slider_images'); // SCFからデータ取得
+        if ($slider_images):
+          foreach ($slider_images as $image):
+            $img_src_pc = wp_get_attachment_image_src($image['mv_slider_pc_img'], 'large')[0];
+            $img_src_sp = wp_get_attachment_image_src($image['mv_slider_sp_img'], 'full')[0];
+            $alt_text = esc_attr($image['mv_slider_alt']);
+        ?>
           <div class="mv__slider swiper-slide">
             <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img1-pc.jpg"
-                media="(min-width: 768px)" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img1.jpg" alt="ウミガメが海を泳いでいる様子" />
+              <source srcset="<?php echo esc_url($img_src_pc); ?>" media="(min-width: 768px)" />
+              <img src="<?php echo esc_url($img_src_sp); ?>" alt="<?php echo $alt_text; ?>" />
             </picture>
           </div>
-          <div class="mv__slider swiper-slide">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img2-pc.jpg"
-                media="(min-width: 768px)" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img2.jpg"
-                alt="海を泳いでいるウミガメを2人のダイバーがみている様子" />
-            </picture>
-          </div>
-          <div class="mv__slider swiper-slide">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img3-pc.jpg"
-                media="(min-width: 768px)" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img3.jpg" alt="沖合に船を停泊させている様子" />
-            </picture>
-          </div>
-          <div class="mv__slider swiper-slide">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img4-pc.jpg"
-                media="(min-width: 768px)" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/mv-img4.jpg" alt="青い海と白い砂浜が広がっている様子" />
-            </picture>
-          </div>
+          <?php
+          endforeach;
+        endif;
+        ?>
         </div>
       </div>
     </div>
   </div>
+
   <!--キャンペーン-->
   <section class="campaign campaign-top">
     <div class="campaign__inner inner">
