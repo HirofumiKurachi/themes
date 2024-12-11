@@ -21,76 +21,32 @@
 <div class="faq-page__accordion faq-page-accordion faq-page-accordion-top js-accordion">
   <div class="faq-page-accordion__inner inner">
     <div class="faq-page-accordion__container accordion-container">
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
+      <?php
+// FAQの繰り返しフィールドを取得
+$faq_list = SCF::get('faq_list');
+
+if (!empty($faq_list)): ?>
+      <div class="faq-page__accordion js-accordion">
+        <div class="faq-page-accordion__inner inner">
+          <div class="faq-page-accordion__container accordion-container">
+
+            <?php foreach ($faq_list as $faq): ?>
+            <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
+              <h3 class="faq-page-accordion__title js-faq-page-accordion-title">
+                <?php echo esc_html($faq['faq_question']); ?>
+              </h3>
+              <div class="faq-page-accordion__content js-faq-page-accordion-content">
+                <p class="faq-page-accordion__text">
+                  <?php echo nl2br(esc_html($faq['faq_answer'])); ?>
+                </p>
+              </div>
+            </div>
+            <?php endforeach; ?>
+
+          </div>
         </div>
       </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
-      <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
-        <h3 class="faq-page-accordion__title is-open js-faq-page-accordion-title">
-          ここに質問が入ります。
-        </h3>
-        <div class="faq-page-accordion__content js-faq-page-accordion-content">
-          <p class="faq-page-accordion__text">
-            ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-          </p>
-        </div>
-      </div>
+      <?php endif; ?>
     </div>
   </div>
 </div>
