@@ -51,16 +51,16 @@
         <h2 class="price-page-item__head-sp">体験ダイビング</h2>
         <h2 class="price-page-item__head-pc-long">体験ダイビング</h2>
         <?php
-// 繰り返しフィールドを取得
-$experience_diving = SCF::get('experience_diving');
-?>
+        // 繰り返しフィールドを取得
+        $experience_diving = SCF::get('experience_diving');
+        ?>
         <?php if (!empty($experience_diving)): ?>
         <table class="price-page-item__box price-page-box">
           <?php foreach ($experience_diving as $item): ?>
-          <?php 
-    // 数値変換用に不要な文字を削除
-    $clean_price = preg_replace('/[^\d]/', '', $item['course_price-2']); 
-    ?>
+          <?php
+        // 数値変換用に不要な文字を削除
+        $clean_price = preg_replace('/[^\d]/', '', $item['course_price-2']);
+        ?>
           <tr>
             <td class="price-page-box__name">
               <?php echo esc_html($item['course_name-2']); ?>
@@ -77,16 +77,16 @@ $experience_diving = SCF::get('experience_diving');
         <h2 class="price-page-item__head-sp-middle">ファンダイビング</h2>
         <h2 class="price-page-item__head-pc-long">ファンダイビング</h2>
         <?php
-// 繰り返しフィールドを取得
-$fun_diving = SCF::get('fun_diving');
-?>
+        // 繰り返しフィールドを取得
+        $fun_diving = SCF::get('fun_diving');
+        ?>
         <?php if (!empty($fun_diving)): ?>
         <table class="price-page-item__box price-page-box">
           <?php foreach ($fun_diving as $item): ?>
-          <?php 
-    // 数値変換用に不要な文字を削除
-    $clean_price = preg_replace('/[^\d]/', '', $item['course_price-3']); 
-    ?>
+          <?php
+          // 数値変換用に不要な文字を削除
+          $clean_price = preg_replace('/[^\d]/', '', $item['course_price-3']);
+          ?>
           <tr>
             <td class="price-page-box__name">
               <?php echo esc_html($item['course_name-3']); ?>
@@ -103,16 +103,16 @@ $fun_diving = SCF::get('fun_diving');
         <h2 class="price-page-item__head-sp-last">スペシャルダイビング</h2>
         <h2 class="price-page-item__head-pc">スペシャルダイビング</h2>
         <?php
-// 繰り返しフィールドを取得
-$special_diving = SCF::get('special_diving');
-?>
+        // 繰り返しフィールドを取得
+        $special_diving = SCF::get('special_diving');
+        ?>
         <?php if (!empty($special_diving)): ?>
         <table class="price-page-item__box price-page-box">
           <?php foreach ($special_diving as $item): ?>
-          <?php 
-    // 数値変換用に不要な文字を削除
-    $clean_price = preg_replace('/[^\d]/', '', $item['course_price-4']); 
-    ?>
+          <?php
+          // 数値変換用に不要な文字を削除
+          $clean_price = preg_replace('/[^\d]/', '', $item['course_price-4']);
+          ?>
           <tr>
             <td class="price-page-box__name">
               <?php echo esc_html($item['course_name-4']); ?>
