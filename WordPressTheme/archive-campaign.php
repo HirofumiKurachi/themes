@@ -21,27 +21,27 @@
     <div class="campaign-page-tab__items campaign-tab">
 
       <!-- "すべて" リンク -->
-      <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="campaign-tab__item
-         <?php if (!is_tax('campaign_category')) echo 'is-active'; ?>">
+      <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"
+        class="campaign-tab__item <?php if (!is_tax('campaign_category')) echo 'is-active'; ?>">
         ALL
       </a>
 
       <!-- カスタムタクソノミーのターム一覧を出力 -->
       <?php
-      $terms = get_terms(array(
-          'taxonomy' => 'campaign_category',
-          'hide_empty' => false,
-      ));
+// 手動で並べたいタームスラッグ順
+$desired_order = array('license-courses', 'fun-diving', 'experience-diving');
 
-      if (!empty($terms) && !is_wp_error($terms)):
-        foreach ($terms as $term):
-          $is_active = (is_tax('campaign_category', $term->slug)) ? 'is-active' : '';
-      ?>
-      <a href="<?php echo get_term_link($term); ?>" class="campaign-tab__item <?php echo $is_active; ?>">
+// 手動順でターム情報を取得
+foreach ($desired_order as $slug):
+  $term = get_term_by('slug', $slug, 'campaign_category');
+  if ($term && !is_wp_error($term)):
+    $is_active = (is_tax('campaign_category', $term->slug)) ? 'is-active' : '';
+?>
+      <a href="<?php echo esc_url(get_term_link($term)); ?>"
+        class="campaign-tab__item <?php echo esc_attr($is_active); ?>">
         <?php echo esc_html($term->name); ?>
       </a>
-      <?php endforeach;
-      endif; ?>
+      <?php endif; endforeach; ?>
     </div>
   </div>
 </div>

@@ -20,7 +20,6 @@
 <div class="voice-page-tab voice-page-tab-top">
   <div class="voice-page-tab__inner inner">
     <div class="campaign-page-tab__items campaign-tab">
-
       <!-- "すべて" リンク -->
       <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"
         class="campaign-tab__item <?php if (!is_tax('campaign_category')) echo 'is-active'; ?>">
@@ -43,7 +42,6 @@ foreach ($desired_order as $slug):
         <?php echo esc_html($term->name); ?>
       </a>
       <?php endif; endforeach; ?>
-
     </div>
   </div>
 </div>
