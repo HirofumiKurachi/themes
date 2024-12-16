@@ -22,8 +22,8 @@
     <div class="campaign-page-tab__items campaign-tab">
 
       <!-- "すべて" リンク -->
-      <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"
-        class="campaign-tab__item <?php if (!is_tax('campaign_category')) echo 'is-active'; ?>">
+      <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>"
+        class="campaign-tab__item <?php if (!is_tax('voice_category')) echo 'is-active'; ?>">
         ALL
       </a>
 
@@ -34,9 +34,9 @@ $desired_order = array('license-courses', 'fun-diving', 'experience-diving');
 
 // 手動順でターム情報を取得
 foreach ($desired_order as $slug):
-  $term = get_term_by('slug', $slug, 'campaign_category');
+  $term = get_term_by('slug', $slug, 'voice_category');
   if ($term && !is_wp_error($term)):
-    $is_active = (is_tax('campaign_category', $term->slug)) ? 'is-active' : '';
+    $is_active = (is_tax('voice_category', $term->slug)) ? 'is-active' : '';
 ?>
       <a href="<?php echo esc_url(get_term_link($term)); ?>"
         class="campaign-tab__item <?php echo esc_attr($is_active); ?>">
@@ -64,7 +64,7 @@ foreach ($desired_order as $slug):
                 <p class="voice-card__title"><?php the_title(); ?></p>
               </div>
               <div class="voice-card__title-box2">
-                <p class="voice-card__title-text">ここにタイトルが入ります。ここにタイトル</p>
+                <p class="voice-card__title-text"><?php the_field('title-text') ?></p>
               </div>
             </div>
             <div class="voice-card__img colorbox">
@@ -73,7 +73,7 @@ foreach ($desired_order as $slug):
           </div>
           <div class="voice-card__text-box">
             <p class="voice-card__text-sub">
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。
+              <?php the_field('text_sub') ?>
             </p>
           </div>
         </div>
