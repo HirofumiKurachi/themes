@@ -138,4 +138,52 @@ add_action( 'pre_get_posts', 'modify_posts_per_page_for_archives' );
 
     add_action( 'admin_menu', 'change_post_label' );
     add_action( 'init', 'change_post_object_label' );
+
+    function my_theme_sidebar_init() {
+        // 人気記事のウィジェットエリア
+        register_sidebar(array(
+            'name'          => '人気記事',
+            'id'            => 'popular-posts',
+            'description'   => '人気記事のウィジェットエリア',
+            'before_widget' => '<div class="blog-heading-cards__item-box blog-heading-card">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ));
+
+        // 口コミのウィジェットエリア
+        register_sidebar(array(
+            'name'          => '口コミ',
+            'id'            => 'customer-reviews',
+            'description'   => '口コミのウィジェットエリア',
+            'before_widget' => '<div class="blog-heading-card-review__item">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ));
+
+        // キャンペーンのウィジェットエリア
+        register_sidebar(array(
+            'name'          => 'キャンペーン',
+            'id'            => 'campaigns',
+            'description'   => 'キャンペーンのウィジェットエリア',
+            'before_widget' => '<div class="blog-heading-card-campaign">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ));
+
+        // アーカイブのウィジェットエリア
+        register_sidebar(array(
+            'name'          => 'アーカイブ',
+            'id'            => 'archive-sidebar',
+            'description'   => 'アーカイブ用のウィジェットエリア',
+            'before_widget' => '<div class="widget">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ));
+    }
+    add_action('widgets_init', 'my_theme_sidebar_init');
+
 ?>
