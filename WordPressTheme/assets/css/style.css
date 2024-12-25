@@ -1895,19 +1895,6 @@ body {
 	line-height: 1;
 }
 
-.contact-form__label span {
-	background-color: #C94800;
-	color: #fff;
-	font-size: 0.75rem;
-	font-weight: 400;
-	letter-spacing: 0.4em;
-	margin-left: 0.4375rem;
-	padding-bottom: 0.0625rem;
-	padding-left: 1rem;
-	padding-right: 0.6875rem;
-	padding-top: 0.1875rem;
-}
-
 .contact-form__label-contact {
 	border-bottom: 0.0625rem dashed #408F95;
 	margin-top: 1.625rem;
@@ -1921,7 +1908,7 @@ body {
 	line-height: 1;
 }
 
-.contact-form__label-contact span {
+.contact-form__required {
 	background-color: #C94800;
 	color: #fff;
 	font-size: 0.75rem;
@@ -1945,19 +1932,6 @@ body {
 	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1;
-}
-
-.contact-form__label-campaign span {
-	background-color: #C94800;
-	color: #fff;
-	font-size: 0.75rem;
-	font-weight: 400;
-	letter-spacing: 0.4em;
-	margin-left: 0.4375rem;
-	padding-bottom: 0.0625rem;
-	padding-left: 1rem;
-	padding-right: 0.6875rem;
-	padding-top: 0.1875rem;
 }
 
 .contact-form__inputs-text {
@@ -2078,19 +2052,6 @@ input[type=checkbox]:checked + .contact-form__check-label::after {
 	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1;
-}
-
-.contact-form__label-text span {
-	background-color: #C94800;
-	color: #fff;
-	font-size: 0.75rem;
-	font-weight: 400;
-	letter-spacing: 0.4em;
-	margin-left: 0.4375rem;
-	padding-bottom: 0.0625rem;
-	padding-left: 1rem;
-	padding-right: 0.6875rem;
-	padding-top: 0.1875rem;
 }
 
 .contact-item__text {
@@ -4303,6 +4264,104 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 	padding: 0.5rem;
 }
 
+.wpcf7-list-item:not(:first-child) {
+	margin-top: 0.25rem;
+}
+
+.wpcf7-list-item {
+	display: block;
+	position: relative;
+}
+
+.wpcf7-list-item-label::before {
+	border: 0.0625rem solid #408F95;
+	content: "";
+	display: block;
+	height: 0.875rem;
+	left: -1.375rem;
+	position: absolute;
+	top: 0.25rem;
+	width: 0.875rem;
+}
+
+.wpcf7-list-item-label::after {
+	border-bottom: 0.125rem solid #C94800;
+	border-left: 0.125rem solid #C94800;
+	content: "";
+	display: block;
+	height: 0.3125rem;
+	left: -1.25rem;
+	margin-top: 0.4375rem;
+	opacity: 0;
+	position: absolute;
+	top: 0rem;
+	transform: rotate(-45deg);
+	width: 0.5625rem;
+}
+
+/* チェックボックスが選択された時にスタイルを適用 */
+
+span.wpcf7-list-item label input[type=checkbox]:checked + .wpcf7-list-item-label::after {
+	opacity: 1;
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+	border: 0.0625rem solid #408F95;
+	margin-top: 1.25rem;
+	padding-bottom: 0.3125rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5625rem;
+	width: 100%;
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required::-moz-placeholder {
+	color: #DDF0F1;
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required::placeholder {
+	color: #DDF0F1;
+}
+
+.wpcf7-form-control.wpcf7-select {
+	border: 0.0625rem solid #408F95;
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 400;
+	margin-top: 1.25rem;
+	padding-bottom: 0.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.75rem;
+	position: relative;
+	width: 100%;
+}
+
+.wpcf7-form-control.wpcf7-select::-moz-placeholder {
+	color: #DDF0F1;
+}
+
+.wpcf7-form-control.wpcf7-select::placeholder {
+	color: #DDF0F1;
+}
+
+.wpcf7-form-control.wpcf7-select select {
+	cursor: pointer;
+	width: 100%;
+}
+
+.wpcf7-form-control.wpcf7-select::before {
+	border-color: #408F95 transparent transparent transparent;
+	border-style: solid;
+	border-width: 0.625rem 0.3125rem 0 0.3125rem;
+	content: "";
+	height: 0;
+	position: absolute;
+	right: 0.5rem;
+	top: 0.625rem;
+	width: 0;
+}
+
 .wrap {
 	display: flex;
 	flex-flow: column;
@@ -5097,18 +5156,13 @@ html {
 	width: 40%;
 }
 
-.contact-form__label span {
-	padding-bottom: 0.25rem;
-	padding-top: 0.125rem;
-}
-
 .contact-form__label-contact {
 	display: flex;
 	margin-top: 2.625rem;
 	padding-bottom: 2.1875rem;
 }
 
-.contact-form__label-contact span {
+.contact-form__required {
 	padding-bottom: 0.25rem;
 	padding-top: 0.125rem;
 }
@@ -5120,12 +5174,9 @@ html {
 }
 
 .contact-form__label-campaign dt {
+	align-items: center;
+	display: flex;
 	width: 40%;
-}
-
-.contact-form__label-campaign span {
-	padding-bottom: 0.25rem;
-	padding-top: 0.125rem;
 }
 
 .contact-form__inputs-text {
@@ -5988,6 +6039,17 @@ html {
 
 .blog-card__body {
 	margin-top: 1.25rem;
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+	margin-top: 0;
+	min-width: 30rem;
+}
+
+.wpcf7-form-control.wpcf7-select {
+	margin-top: 0;
+	min-width: 30rem;
+	padding: 0.3125rem 0.5rem;
 }
 
 }

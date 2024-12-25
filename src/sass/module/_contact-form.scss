@@ -29,23 +29,23 @@
   }
 }
 
-.contact-form__label span {
-  font-size: rem(12);
-  font-weight: $normal;
-  background-color: $red;
-  color: $white;
-  padding-top: rem(3);
-  padding-right: rem(11);
-  padding-bottom: rem(1);
-  padding-left: rem(16);
-  margin-left: rem(7);
-  letter-spacing: 0.4em;
+// .contact-form__label span {
+//   font-size: rem(12);
+//   font-weight: $normal;
+//   background-color: $red;
+//   color: $white;
+//   padding-top: rem(3);
+//   padding-right: rem(11);
+//   padding-bottom: rem(1);
+//   padding-left: rem(16);
+//   margin-left: rem(7);
+//   letter-spacing: 0.4em;
 
-  @include mq("md") {
-    padding-top: rem(2);
-    padding-bottom: rem(4);
-  }
-}
+//   @include mq("md") {
+//     padding-top: rem(2);
+//     padding-bottom: rem(4);
+//   }
+// }
 
 .contact-form__label-contact {
   margin-top: rem(26);
@@ -66,7 +66,25 @@
   line-height: 1;
 }
 
-.contact-form__label-contact span {
+// .contact-form__label-contact span {
+//   font-size: rem(12);
+//   font-weight: $normal;
+//   background-color: $red;
+//   color: $white;
+//   padding-top: rem(3);
+//   padding-right: rem(11);
+//   padding-bottom: rem(1);
+//   padding-left: rem(16);
+//   margin-left: rem(7);
+//   letter-spacing: 0.4em;
+
+//   @include mq("md") {
+//     padding-top: rem(2);
+//     padding-bottom: rem(4);
+//   }
+// }
+
+.contact-form__required {
   font-size: rem(12);
   font-weight: $normal;
   background-color: $red;
@@ -104,26 +122,28 @@
 
   @include mq("md") {
     width: 40%;
+    display: flex;
+    align-items: center;
   }
 }
 
-.contact-form__label-campaign span {
-  font-size: rem(12);
-  font-weight: $normal;
-  background-color: $red;
-  color: $white;
-  padding-top: rem(3);
-  padding-right: rem(11);
-  padding-bottom: rem(1);
-  padding-left: rem(16);
-  margin-left: rem(7);
-  letter-spacing: 0.4em;
+// .contact-form__label-campaign span {
+//   font-size: rem(12);
+//   font-weight: $normal;
+//   background-color: $red;
+//   color: $white;
+//   padding-top: rem(3);
+//   padding-right: rem(11);
+//   padding-bottom: rem(1);
+//   padding-left: rem(16);
+//   margin-left: rem(7);
+//   letter-spacing: 0.4em;
 
-  @include mq("md") {
-    padding-top: rem(2);
-    padding-bottom: rem(4);
-  }
-}
+//   @include mq("md") {
+//     padding-top: rem(2);
+//     padding-bottom: rem(4);
+//   }
+// }
 
 .contact-form__inputs-text {
   margin-top: rem(20);
@@ -275,15 +295,15 @@ input[type="checkbox"]:checked + .contact-form__check-label::after {
   }
 }
 
-.contact-form__label-text span {
-  font-size: rem(12);
-  font-weight: $normal;
-  background-color: $red;
-  color: $white;
-  padding-top: rem(3);
-  padding-right: rem(11);
-  padding-bottom: rem(1);
-  padding-left: rem(16);
-  margin-left: rem(7);
-  letter-spacing: 0.4em;
-}
+// .contact-form__label-text span {
+//   font-size: rem(12);
+//   font-weight: $normal;
+//   background-color: $red;
+//   color: $white;
+//   padding-top: rem(3);
+//   padding-right: rem(11);
+//   padding-bottom: rem(1);
+//   padding-left: rem(16);
+//   margin-left: rem(7);
+//   letter-spacing: 0.4em;
+// }

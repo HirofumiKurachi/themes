@@ -43,7 +43,7 @@
             <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>faq"><span>FAQ</span>よくある質問</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="contact-page.html"><span>Contact</span>お問合せ</a>
+            <a class="header__link" href="<?php echo esc_url(home_url('/')); ?>contact"><span>Contact</span>お問合せ</a>
           </li>
         </ul>
       </nav>
