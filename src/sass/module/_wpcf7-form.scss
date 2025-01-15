@@ -41,7 +41,7 @@ span.wpcf7-list-item label input[type="checkbox"]:checked + .wpcf7-list-item-lab
   opacity: 1;
 }
 
-.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+.wpcf7-text.wpcf7-validates-as-required {
   margin-top: rem(20);
   border: rem(1) solid $green;
   width: 100%;
@@ -56,7 +56,7 @@ span.wpcf7-list-item label input[type="checkbox"]:checked + .wpcf7-list-item-lab
   }
 }
 
-.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required::placeholder {
+.wpcf7-text.wpcf7-validates-as-required::placeholder {
   color: $green2;
 }
 
@@ -80,36 +80,31 @@ span.wpcf7-list-item label input[type="checkbox"]:checked + .wpcf7-list-item-lab
 // }
 
 
-.wpcf7-form-control.wpcf7-select {
+.wpcf7-select {
   margin-top: rem(20);
   display: inline-block;
   position: relative;
-  border: rem(1) solid $green;
   width: 100%;
-  padding-top: rem(12);
-  padding-right: rem(8);
-  padding-bottom: rem(8);
-  padding-left: rem(8);
   font-size: rem(12);
   font-weight: $normal;
+  cursor: pointer;
 
   @include mq("md") {
     min-width: rem(480);
-    padding: rem(5) rem(8);
     margin-top: 0;
   }
 }
 
-.wpcf7-form-control.wpcf7-select::placeholder {
+.wpcf7-select::placeholder {
   color: $green2;
 }
 
-.wpcf7-form-control.wpcf7-select select {
+.wpcf7-select select {
   width: 100%;
   cursor: pointer;
 }
 
-.wpcf7-form-control.wpcf7-select::before {
+.wpcf7-select::before {
   position: absolute;
   top: rem(10);
   right: rem(8);
