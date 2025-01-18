@@ -7,6 +7,7 @@
 .wpcf7-list-item {
   position: relative;
   display: block;
+  margin-left: rem(0);
 }
 
 .wpcf7-list-item-label::before {
@@ -79,7 +80,6 @@ span.wpcf7-list-item label input[type="checkbox"]:checked + .wpcf7-list-item-lab
 //   color: $green2;
 // }
 
-
 .wpcf7-select {
   margin-top: rem(20);
   display: inline-block;
@@ -116,3 +116,18 @@ span.wpcf7-list-item label input[type="checkbox"]:checked + .wpcf7-list-item-lab
   content: "";
 }
 
+.wpcf7-textarea.wpcf7-validates-as-required  {
+  width: 100%;
+  padding: rem(10);
+  height: rem(200);
+  border: 1px solid $green;
+  resize: none;
+
+  @include mq("md") {
+    min-width: rem(480);
+  }
+}
+
+.wpcf7-submit {
+  display: none;
+}

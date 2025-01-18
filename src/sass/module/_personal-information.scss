@@ -8,6 +8,7 @@
 
   @include mq("md") {
     margin-top: rem(80);
+    padding-left: rem(30);
   }
 }
 
@@ -15,7 +16,7 @@
   font-size: rem(14);
   position: relative;
   display: block;
-  line-height: calc(22/14);
+  line-height: calc(22 / 14);
 }
 
 .personal-information__check-label::before {

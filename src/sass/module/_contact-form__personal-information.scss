@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.contact-form__personal-information.personal-information input + span::before {
+  position: absolute;
+  content: "";
+  width: rem(22);
+  height: rem(22);
+  border: rem(1) solid $green;
+  left: rem(-30);
+  top: rem(-2);
+  display: block;
+}
+
+.contact-form__personal-information.personal-information span {
+  padding-left: rem(4);
+  font-size: rem(14);
+}

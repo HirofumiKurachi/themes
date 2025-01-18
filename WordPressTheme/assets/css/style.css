@@ -1879,6 +1879,22 @@ body {
 	color: #408F95;
 }
 
+.contact-form__personal-information.personal-information input + span::before {
+	border: 0.0625rem solid #408F95;
+	content: "";
+	display: block;
+	height: 1.375rem;
+	left: -1.875rem;
+	position: absolute;
+	top: -0.125rem;
+	width: 1.375rem;
+}
+
+.contact-form__personal-information.personal-information span {
+	font-size: 0.875rem;
+	padding-left: 0.25rem;
+}
+
 .contact-form__label {
 	border-bottom: 0.0625rem dashed #408F95;
 	padding-bottom: 1.5rem;
@@ -4270,6 +4286,7 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 
 .wpcf7-list-item {
 	display: block;
+	margin-left: 0rem;
 	position: relative;
 }
 
@@ -4356,6 +4373,18 @@ span.wpcf7-list-item label input[type=checkbox]:checked + .wpcf7-list-item-label
 	right: 0.5rem;
 	top: 0.625rem;
 	width: 0;
+}
+
+.wpcf7-textarea.wpcf7-validates-as-required {
+	border: 1px solid #408F95;
+	height: 12.5rem;
+	padding: 0.625rem;
+	resize: none;
+	width: 100%;
+}
+
+.wpcf7-submit {
+	display: none;
 }
 
 .wrap {
@@ -5637,6 +5666,7 @@ html {
 
 .contact-form__personal-information {
 	margin-top: 5rem;
+	padding-left: 1.875rem;
 }
 
 .price-item__title {
@@ -6044,6 +6074,10 @@ html {
 
 .wpcf7-select {
 	margin-top: 0;
+	min-width: 30rem;
+}
+
+.wpcf7-textarea.wpcf7-validates-as-required {
 	min-width: 30rem;
 }
 
