@@ -18,7 +18,7 @@
 <?php get_template_part('parts/breadcrumb') ?>
 
 <!--サンクス-->
-<section class="thanks-pagee thanks-page-top">
+<section class="thanks-page thanks-page-top">
   <div class="thanks-page__inner inner">
     <div class="thanks-page__box">
       <p class="thanks-page__title">お問い合わせ内容を送信完了しました。</p>
