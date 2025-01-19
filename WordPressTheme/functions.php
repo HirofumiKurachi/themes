@@ -191,12 +191,4 @@ add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {
   return false;
 }
-
-function custom_wpcf7_redirect_script() {
-    if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
-        wp_enqueue_script( 'custom-wpcf7-redirect', get_template_directory_uri() . '/js/wpcf7-redirect.js', array( 'jquery' ), null, true );
-    }
-}
-add_action( 'wp_enqueue_scripts', 'custom_wpcf7_redirect_script' );
-
 ?>
