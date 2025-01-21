@@ -3787,6 +3787,31 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 	margin-top: 1.875rem;
 }
 
+.privacy-page__items p {
+	margin-top: 2.0625rem;
+}
+
+.privacy-page__items ol {
+	margin-top: 1.8125rem;
+	padding-left: 1.4375rem;
+}
+
+.privacy-page__items ol:nth-child(4) {
+	margin-top: 0rem;
+}
+
+.privacy-page__items ol:nth-child(6) {
+	margin-top: 0rem;
+}
+
+.privacy-page__items ol:nth-child(8) {
+	margin-top: 0rem;
+}
+
+.privacy-page__items li {
+	list-style: decimal;
+}
+
 .section-title {
 	text-align: center;
 }
@@ -4073,6 +4098,23 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 
 .terms-page__end {
 	margin-top: 2.1875rem;
+}
+
+.terms-page__items ol {
+	margin-top: 1.8125rem;
+	padding-left: 1.4375rem;
+}
+
+.terms-page__items li {
+	list-style: decimal;
+}
+
+.terms-page__items p {
+	margin-top: 2.1875rem;
+}
+
+.terms-page__items p:nth-child(3) {
+	margin-top: 0rem;
 }
 
 .thanks-page__inner {
@@ -5977,6 +6019,10 @@ html {
 }
 
 .terms-page__end {
+	margin-top: 2.25rem;
+}
+
+.terms-page__items p {
 	margin-top: 2.25rem;
 }
 

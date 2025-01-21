@@ -88,3 +88,26 @@
     margin-top: rem(36);
   }
 }
+
+//WP化
+
+.terms-page__items ol {
+  margin-top: rem(29);
+  padding-left: rem(23);
+}
+
+.terms-page__items li {
+  list-style: decimal;
+}
+
+.terms-page__items p {
+  margin-top: rem(35);
+
+  @include mq("md") {
+    margin-top: rem(36);
+  }
+}
+
+.terms-page__items p:nth-child(3) {
+  margin-top: rem(0);
+}

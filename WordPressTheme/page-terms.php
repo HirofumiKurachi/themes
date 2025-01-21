@@ -19,35 +19,16 @@
 <!--利用規約-->
 <section class="terms-page terms-page-top">
   <div class="terms-page__inner inner">
-    <h2 class="terms-page__title">利用規約</h2>
+    <h2 class="terms-page__title"><?php the_title(); ?></h2>
     <div class="terms-page__items">
-      <p class="terms-page__beginning">以下は、Webサイトで使用する一般的な利用規約の例です。</p>
-      <div class="terms-page__item">
-        <ol class="terms-page__item-numbers">
-          <li class="terms-page__item-number">概要
-            この利用規約は、当社が提供するサービスの利用に関する条件を定めたものです。本規約に同意いただくことで、当社のサービスを利用いただけます。なお、本規約に違反した場合、当社はサービスの提供を中止することがあります。
-          </li>
-          <li class="terms-page__item-number">サービスの利用
-            当社のサービスは、お客様が自己責任において利用するものとし、当社はその利用に対して責任を負いません。また、当社はいつでも、サービスの提供を中止することができるものとします。</li>
-          <li class="terms-page__item-number">禁止事項 お客様は、以下の行為を禁止します。</li>
-        </ol>
-        <p>・当社のサービスに対して不正なアクセスをすること ・当社のサービスにおいて、他のユー<br class="md-show">ザーに対して迷惑<br class="md-none">をかける行為をすること
-          ・当社のサービスを商業目的で利用すること ・当社のサービスに関する知的財産権を侵害する行為をすること ・その他、法律や公序良俗に反する行為をすること</p>
-      </div>
-      <div class="terms-page__item-text">
-        <ol class="terms-page__item-numbers-text">
-          <li class="terms-page__item-number">知的財産権
-            当社のサービスに関する知的財産権は、当社または当社にライセンスを許諾している者に帰属します。お客様は、当社の事前の承諾なしに、当社のサービスに関する知的財産権を使用することはできません。</li>
-          <li class="terms-page__item-number">免責事項 当社は、当社のサービスに関連して発生した損害について、一切の責任を負わないものとします。また、当社は、当社の<br
-              class="md-show">サービスにより提供される情報の正確性、信頼性、完全性、適時性についても一切保証しません。</li>
-          <li class="terms-page__item-number">プライバシー 当社は、お客様の個人情報を適切に保護するために、個人情報保護方針に従って適切な取扱いを行います。</li>
-          <li class="terms-page__item-number">その他の規定
-            本規約は、日本法に準拠して解釈されるものとし、当社とお客様は、本規約に関する紛争が生じた場合、東京地方裁判所を第一審の専属的合意管轄裁判所とすることに同意します。</li>
-          <li class="terms-page__item-number">利用規約の変更
-            当社は、必要に応じて本利用規約を変更することがあります。変更後の利用規約は、当社のサイトに掲載された時点から効力を有するものとします。変更があった場合、当社は適切な手段でお知らせします。</li>
-        </ol>
-      </div>
-      <p class="terms-page__end">以上が、当社の利用規約の概要です。お客様のサービス利用にあたっては、本規約をお読みいただき、同意いただける場合のみサービスをご利用ください。</p>
+      <?php
+      // 固定ページの本文（投稿エディターの内容）を出力
+      if (have_posts()) :
+        while (have_posts()) : the_post();
+          the_content(); // 投稿エディターで入力された内容を表示
+        endwhile;
+      endif;
+      ?>
     </div>
   </div>
 </section>
