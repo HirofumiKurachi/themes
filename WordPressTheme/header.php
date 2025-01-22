@@ -117,7 +117,7 @@
                   </a>
                 </li>
                 <li class="drawer-menu__item">
-                  <a href="<?php echo esc_url(home_url('/')); ?>terms" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>term-of-service" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">利用規約</p>
                   </a>
                 </li>
