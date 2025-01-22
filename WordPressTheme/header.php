@@ -60,7 +60,7 @@
             <div class="drawer-menu__container-left">
               <ul class="drawer-menu__items-upper">
                 <li class="drawer-menu__item">
-                  <a href="campaign-page.html" class="drawer-menu__link-main">
+                  <a href="<?php echo esc_url(home_url('/')); ?>campaign" class="drawer-menu__link-main">
                     <p class="drawer__logo-text">キャンペーン</p>
                   </a>
                 </li>
@@ -68,14 +68,14 @@
                 <li class="drawer-menu__item-text"><a href="#">貸切体験ダイビング</a></li>
                 <li class="drawer-menu__item-text"><a href="#">ナイトダイビング</a></li>
                 <li class="drawer-menu__item">
-                  <a href="aboutus-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>about-us" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">私たちについて</p>
                   </a>
                 </li>
               </ul>
               <ul class="drawer-menu__items-bottom">
                 <li class="drawer-menu__item">
-                  <a href="information-page.html" class="drawer-menu__link-main">
+                  <a href="<?php echo esc_url(home_url('/')); ?>information" class="drawer-menu__link-main">
                     <p class="drawer__logo-text">ダイビング情報</p>
                   </a>
                 </li>
@@ -83,7 +83,7 @@
                 <li class="drawer-menu__item-text"><a href="information-page.html?id=tab3">体験ダイビング</a></li>
                 <li class="drawer-menu__item-text"><a href="information-page.html?id=tab2">ファンダイビング</a></li>
                 <li class="drawer-menu__item">
-                  <a href="blog-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>blog" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">ブログ</p>
                   </a>
                 </li>
@@ -92,12 +92,12 @@
             <div class="drawer-menu__container-right">
               <ul class="drawer-menu__items-upper">
                 <li class="drawer-menu__item">
-                  <a href="voice-page.html" class="drawer-menu__link-main">
+                  <a href="<?php echo esc_url(home_url('/')); ?>voice" class="drawer-menu__link-main">
                     <p class="drawer__logo-text">お客様の声</p>
                   </a>
                 </li>
                 <li class="drawer-menu__item">
-                  <a href="price-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>price" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">料金一覧</p>
                   </a>
                 </li>
@@ -107,22 +107,22 @@
               </ul>
               <ul class="drawer-menu__items-bottom">
                 <li class="drawer-menu__item">
-                  <a href="faq-page.html" class="drawer-menu__link-main">
+                  <a href="<?php echo esc_url(home_url('/')); ?>faq" class="drawer-menu__link-main">
                     <p class="drawer__logo-text">よくある質問</p>
                   </a>
                 </li>
                 <li class="drawer-menu__item">
-                  <a href="privacy-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>privacypolicy" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">プライバシー<br />ポリシー</p>
                   </a>
                 </li>
                 <li class="drawer-menu__item">
-                  <a href="terms-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>terms" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">利用規約</p>
                   </a>
                 </li>
                 <li class="drawer-menu__item">
-                  <a href="contact-page.html" class="drawer-menu__link-sub">
+                  <a href="<?php echo esc_url(home_url('/')); ?>contact" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">お問い合わせ</p>
                   </a>
                 </li>
