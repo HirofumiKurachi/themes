@@ -134,8 +134,8 @@
         </div>
       </div>
       <div class="campaign__button-layout">
-        <a href="campaign-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-            class="button-arrow"></span></a>
+        <a href="<?php echo esc_url(home_url('/')); ?>campaign" class="button">View&nbsp;more<span
+            class="button-arrow2"></span><span class="button-arrow"></span></a>
       </div>
     </div>
   </section>
@@ -165,8 +165,8 @@
             ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
           </p>
           <div class="about-us__button-layout">
-            <a href="aboutus-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-                class="button-arrow"></span></a>
+            <a href="<?php echo esc_url(home_url('/')); ?>about-us" class="button">View&nbsp;more<span
+                class="button-arrow2"></span><span class="button-arrow"></span></a>
           </div>
         </div>
       </div>
@@ -189,8 +189,8 @@
               class="md-none" />の「正規店」として店舗登録されています。<br />正規登録店として、安心安全に初めての方でも安心安全にライセン<br
               class="md-none" />ス取得をサポート致します。</p>
           <div class="information__button-layout">
-            <a href="information-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-                class="button-arrow"></span> </a>
+            <a href="<?php echo esc_url(home_url('/')); ?>information" class="button">View&nbsp;more<span
+                class="button-arrow2"></span><span class="button-arrow"></span> </a>
           </div>
         </div>
       </div>
@@ -247,8 +247,8 @@
         </a>
       </div>
       <div class="blog__button-layout">
-        <a href="blog-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-            class="button-arrow"></span> </a>
+        <a href="<?php echo esc_url(home_url('/')); ?>blog" class="button">View&nbsp;more<span
+            class="button-arrow2"></span><span class="button-arrow"></span> </a>
       </div>
     </div>
   </section>
@@ -309,8 +309,8 @@
         </div>
       </div>
       <div class="voice__button-layout">
-        <a href="voice-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-            class="button-arrow"></span> </a>
+        <a href="<?php echo esc_url(home_url('/')); ?>voice" class="button">View&nbsp;more<span
+            class="button-arrow2"></span><span class="button-arrow"></span> </a>
       </div>
     </div>
   </section>
@@ -340,9 +340,9 @@
             <?php if (!empty($license_courses)): ?>
             <dl class="price-item__box">
               <?php foreach ($license_courses as $item): ?>
-              <?php 
+              <?php
             // 数値変換用に不要な文字を削除
-            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']); 
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']);
             $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
             ?>
 
@@ -368,9 +368,9 @@
             <?php if (!empty($experience_diving)): ?>
             <dl class="price-item__box">
               <?php foreach ($experience_diving as $item): ?>
-              <?php 
+              <?php
             // 数値変換用に不要な文字を削除
-            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-2']); 
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-2']);
             $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
             ?>
 
@@ -445,8 +445,8 @@
       </div>
     </div>
     <div class="price__button-layout">
-      <a href="price-page.html" class="button">View&nbsp;more<span class="button-arrow2"></span><span
-          class="button-arrow"></span> </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>price" class="button">View&nbsp;more<span
+          class="button-arrow2"></span><span class="button-arrow"></span> </a>
     </div>
     </div>
   </section>
@@ -494,8 +494,8 @@
           </div>
           <p class="contact__title-text">ご予約・お問い合わせはコチラ</p>
           <div class="contact__button-layout">
-            <a href="contact-page.html" class="button">Contact&nbsp;us<span class="button-arrow2"></span><span
-                class="button-arrow"></span> </a>
+            <a href="<?php echo esc_url(home_url('/')); ?>contact" class="button">Contact&nbsp;us<span
+                class="button-arrow2"></span><span class="button-arrow"></span> </a>
           </div>
 
           <?php get_footer(); ?>
