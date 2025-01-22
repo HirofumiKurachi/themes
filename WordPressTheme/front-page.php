@@ -42,90 +42,59 @@
       <div class="campaign__container">
         <div class="campaign__container-slider swiper js-campaign-swiper">
           <div class="campaign__container-wrapper swiper-wrapper">
+
+            <?php
+          // カスタム投稿タイプ 'campaign' から投稿を取得
+          $args = array(
+            'post_type' => 'campaign', // カスタム投稿タイプのスラッグ
+            'posts_per_page' => 4,    // 表示する投稿数
+            'orderby' => 'date',      // 日付で並び替え
+            'order' => 'DESC'         // 新しい順
+          );
+          $campaign_query = new WP_Query($args);
+
+          if ($campaign_query->have_posts()) :
+            while ($campaign_query->have_posts()) : $campaign_query->the_post();
+          ?>
             <div class="campaign__container-slide swiper-slide">
-              <a href="#" class="campaign-card">
+              <a href="<?php the_permalink(); ?>" class="campaign-card">
                 <div class="campaign-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-img1.jpg"
-                    alt="多種多様のカラフルな魚たちが泳いでいる様子" />
+                  <?php if (has_post_thumbnail()) : ?>
+                  <!-- 投稿のアイキャッチ画像を表示 -->
+                  <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+                  <?php else : ?>
+                  <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-campaign.jpg"
+                    alt="<?php the_title(); ?>">
+                  <?php endif; ?>
                 </div>
                 <div class="campaign-card__body">
                   <div class="campaign-card__text">
-                    <p class="campaign-card__title">ライセンス講習</p>
-                    <p class="campaign-card__title-sub">ライセンス取得</p>
+                    <p class="campaign-card__title"><?php the_field('title_sub') ?></p>
+                    <p class="campaign-card__title-sub"><?php the_title(); ?>
+                    </p>
                   </div>
                   <div class="campaign-card__price">
                     <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
                     <div class="campaign-card__price-box">
-                      <p class="campaign-card__price-old">¥56,000</p>
-                      <p class="campaign-card__price-new">¥46,000</p>
+                      <p class="campaign-card__price-old">
+                        <?php the_field('original_price') ?>
+                      </p>
+                      <p class="campaign-card__price-new">
+                        <?php the_field('discount_price') ?>
+                      </p>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="campaign__container-slide swiper-slide">
-              <a href="#" class="campaign-card">
-                <div class="campaign-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-img2.jpg"
-                    alt="綺麗な海に船が3隻停泊している様子" />
-                </div>
-                <div class="campaign-card__body">
-                  <div class="campaign-card__text">
-                    <p class="campaign-card__title">体験ダイビング</p>
-                    <p class="campaign-card__title-sub">貸切体験ダイビング</p>
-                  </div>
-                  <div class="campaign-card__price">
-                    <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                    <div class="campaign-card__price-box">
-                      <p class="campaign-card__price-old">¥24,000</p>
-                      <p class="campaign-card__price-new">¥18,000</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="campaign__container-slide swiper-slide">
-              <a href="#" class="campaign-card">
-                <div class="campaign-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-img3.jpg"
-                    alt="暗い海の中を泳いているクラゲが光に当てられている様子" />
-                </div>
-                <div class="campaign-card__body">
-                  <div class="campaign-card__text">
-                    <p class="campaign-card__title">体験ダイビング</p>
-                    <p class="campaign-card__title-sub">ナイトダイビング</p>
-                  </div>
-                  <div class="campaign-card__price">
-                    <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                    <div class="campaign-card__price-box">
-                      <p class="campaign-card__price-old">¥10,000</p>
-                      <p class="campaign-card__price-new">¥8,000</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="campaign__container-slide swiper-slide">
-              <a href="#" class="campaign-card">
-                <div class="campaign-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-img4.jpg"
-                    alt="複数のダイバーたちが海の上で今にも潜ろうとしている様子" />
-                </div>
-                <div class="campaign-card__body">
-                  <div class="campaign-card__text">
-                    <p class="campaign-card__title">ファンダイビング</p>
-                    <p class="campaign-card__title-sub">貸切ファンダイビング</p>
-                  </div>
-                  <div class="campaign-card__price">
-                    <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                    <div class="campaign-card__price-box">
-                      <p class="campaign-card__price-old">¥20,000</p>
-                      <p class="campaign-card__price-new">¥16,000</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <?php
+            endwhile;
+            wp_reset_postdata();
+          else :
+          ?>
+            <p>現在、キャンペーンはありません。</p>
+            <?php endif; ?>
           </div>
         </div>
         <div class="campaign__container-button-box">
@@ -134,11 +103,12 @@
         </div>
       </div>
       <div class="campaign__button-layout">
-        <a href="<?php echo esc_url(home_url('/')); ?>campaign" class="button">View&nbsp;more<span
+        <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="button">View&nbsp;more<span
             class="button-arrow2"></span><span class="button-arrow"></span></a>
       </div>
     </div>
   </section>
+
   <!--アバウトアス-->
   <section class="about-us about-us-top">
     <div class="about-us__inner inner">
@@ -204,54 +174,56 @@
         <h2 class="section-title__main section-title__main--white">ブログ</h2>
       </div>
       <div class="blog__cards blog-cards">
-        <a href="#" class="blog-cards__item-box blog-card">
+        <?php
+      // 通常投稿タイプ 'post' から投稿を取得
+      $args = array(
+        'post_type' => 'post',        // 投稿タイプ（通常投稿は 'post'）
+        'posts_per_page' => 3,       // 表示する投稿数
+        'orderby' => 'date',         // 日付で並び替え
+        'order' => 'DESC'            // 新しい順に表示
+      );
+      $blog_query = new WP_Query($args);
+
+      if ($blog_query->have_posts()) :
+        while ($blog_query->have_posts()) : $blog_query->the_post();
+      ?>
+        <a href="<?php the_permalink(); ?>" class="blog-cards__item-box blog-card">
           <div class="blog-card__item">
             <div class="blog-card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-img2.jpg"
-                alt="海底にカラフルなイソギンチャクが生えている様子" />
+              <?php if (has_post_thumbnail()) : ?>
+              <!-- 投稿のアイキャッチ画像を表示 -->
+              <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+              <?php else : ?>
+              <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-blog.jpg" alt="<?php the_title(); ?>">
+              <?php endif; ?>
             </div>
             <div class="blog-card__body">
-              <time class="blog-card__date" datetime="2022-11-17">2023.11/17</time>
-              <h3 class="blog-card__text">ライセンス取得</h3>
+              <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>">
+                <?php echo get_the_date('Y.m.d'); ?>
+              </time>
+              <h3 class="blog-card__text"><?php the_title(); ?></h3>
               <p class="blog-card__text-sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                <?php the_content(); ?>
+              </p>
             </div>
           </div>
         </a>
-        <a href="#" class="blog-cards__item-box blog-card">
-          <div class="blog-card__item">
-            <div class="blog-card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-img3.jpg" alt="ウミガメが海中を優雅に泳いでいる様子" />
-            </div>
-            <div class="blog-card__body">
-              <time class="blog-card__date" datetime="2022-11-23">2023.11/17</time>
-              <h3 class="blog-card__text">ウミガメと泳ぐ</h3>
-              <p class="blog-card__text-sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="blog-cards__item-box blog-card">
-          <div class="blog-card__item">
-            <div class="blog-card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-img4.jpg"
-                alt="イソギンチャクの間にカクレクマノミが隠れている様子" />
-            </div>
-            <div class="blog-card__body">
-              <time class="blog-card__date" datetime="2022-11-23">2023.11/17</time>
-              <h3 class="blog-card__text">カクレクマノミ</h3>
-              <p class="blog-card__text-sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
-          </div>
-        </a>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+      else :
+      ?>
+        <p>現在、ブログ記事はありません。</p>
+        <?php endif; ?>
       </div>
       <div class="blog__button-layout">
-        <a href="<?php echo esc_url(home_url('/')); ?>blog" class="button">View&nbsp;more<span
-            class="button-arrow2"></span><span class="button-arrow"></span> </a>
+        <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button">View&nbsp;more<span
+            class="button-arrow2"></span><span class="button-arrow"></span></a>
       </div>
     </div>
   </section>
+
   <!--ボイス-->
   <section class="voice voice-top">
     <div class="voice__inner inner">
@@ -260,60 +232,68 @@
         <h2 class="section-title__main">お客様の声</h2>
       </div>
       <div class="voice__cards voice-cards">
+        <?php
+      // カスタム投稿タイプ 'voice' から投稿を取得
+      $args = array(
+        'post_type' => 'voice',      // カスタム投稿タイプのスラッグ
+        'posts_per_page' => 2,       // 表示する投稿数（ここでは2件）
+        'orderby' => 'date',         // 日付で並び替え
+        'order' => 'DESC'            // 新しい順に表示
+      );
+      $voice_query = new WP_Query($args);
+
+      if ($voice_query->have_posts()) :
+        while ($voice_query->have_posts()) : $voice_query->the_post();
+          // カスタムフィールドの値を取得
+          $age_gender = get_post_meta(get_the_ID(), 'age_gender', true); // 例: "20代(女性)"
+          $program = get_post_meta(get_the_ID(), 'program', true); // 例: "ライセンス講習"
+          $subtitle = get_post_meta(get_the_ID(), 'subtitle', true); // タイトルの補足説明
+      ?>
         <div class="voice-cards__item-box voice-card">
           <div class="voice-card__item">
             <div class="voice-card__container">
               <div class="voice-card__title-box">
                 <div class="voice-card__title-box1">
-                  <p class="voice-card__title-sub">20代(女性)</p>
-                  <p class="voice-card__title">ライセンス講習</p>
+                  <p class="voice-card__title-sub"><?php the_field('title_sub') ?></p>
+                  <p class="voice-card__title"><?php the_title(); ?></p>
                 </div>
                 <div class="voice-card__title-box2">
-                  <p class="voice-card__title-text">ここにタイトルが入ります。ここにタイトル</p>
+                  <p class="voice-card__title-text"><?php the_field('title-text') ?></p>
                 </div>
               </div>
               <div class="voice-card__img colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-img1.jpg" alt="ベージュの帽子を被った笑顔の女性" />
+                <?php if (has_post_thumbnail()) : ?>
+                <!-- アイキャッチ画像を表示 -->
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
+                <?php else : ?>
+                <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-voice.jpg"
+                  alt="<?php the_title(); ?>">
+                <?php endif; ?>
               </div>
             </div>
             <div class="voice-card__text-box">
               <p class="voice-card__text-sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。
+                <?php the_field('text_sub') ?>
               </p>
             </div>
           </div>
         </div>
-        <div class="voice-cards__item-box voice-card">
-          <div class="voice-card__item">
-            <div class="voice-card__container">
-              <div class="voice-card__title-box">
-                <div class="voice-card__title-box1">
-                  <p class="voice-card__title-sub">20代(男性)</p>
-                  <p class="voice-card__title">ファンダイビング</p>
-                </div>
-                <div class="voice-card__title-box2">
-                  <p class="voice-card__title-text">ここにタイトルが入ります。ここにタイトル</p>
-                </div>
-              </div>
-              <div class="voice-card__img colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-img2.jpg"
-                  alt="グッドサインをした紺色のシャツを着た男性" />
-              </div>
-            </div>
-            <div class="voice-card__text-box">
-              <p class="voice-card__text-sub">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。
-              </p>
-            </div>
-          </div>
-        </div>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+      else :
+      ?>
+        <p>現在、お客様の声はありません。</p>
+        <?php endif; ?>
       </div>
       <div class="voice__button-layout">
-        <a href="<?php echo esc_url(home_url('/')); ?>voice" class="button">View&nbsp;more<span
-            class="button-arrow2"></span><span class="button-arrow"></span> </a>
+        <a href="<?php echo esc_url(home_url('/voice')); ?>" class="button">View&nbsp;more<span
+            class="button-arrow2"></span><span class="button-arrow"></span></a>
       </div>
     </div>
   </section>
+
   <!--プライス-->
   <section class="price price-top">
     <div class="price__inner inner">
@@ -396,9 +376,9 @@
             <?php if (!empty($fun_diving)): ?>
             <dl class="price-item__box">
               <?php foreach ($fun_diving as $item): ?>
-              <?php 
+              <?php
             // 数値変換用に不要な文字を削除
-            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-3']); 
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-3']);
             $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
             ?>
 
@@ -424,9 +404,9 @@
             <?php if (!empty($special_diving)): ?>
             <dl class="price-item__box">
               <?php foreach ($special_diving as $item): ?>
-              <?php 
+              <?php
             // 数値変換用に不要な文字を削除
-            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-4']); 
+            $clean_price = preg_replace('/[^\d]/', '', $item['course_price-4']);
             $formatted_price = is_numeric($clean_price) ? number_format_i18n((float)$clean_price) : '価格未設定';
             ?>
 
@@ -450,52 +430,4 @@
     </div>
     </div>
   </section>
-  <!--コンタクト-->
-  <section class="contact contact-top">
-    <div class="contact__inner inner">
-      <div class="contact__container">
-        <div class="contact__box contact-box">
-          <a href="index.html" class="contact-box__logo-layout">
-            <h3 class="contact-box__logo">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/contact-logo.svg" alt="CodeUps" />
-            </h3>
-          </a>
-          <div class="contact-box__information">
-            <ul class="contact-box__items">
-              <li class="contact-box__items-item contact-item">
-                <address class="contact-item__private">
-                  <p class="contact-item__text">沖縄県那覇市1-1</p>
-                </address>
-              </li>
-              <li class="contact-box__items-item contact-item">
-                <a href="TEL:0120-000-0000">
-                  <p class="contact-item__text">TEL:0120-000-0000</p>
-                </a>
-              </li>
-              <li class="contact-box__items-item contact-item">
-                <p class="contact-item__text">営業時間:8:30-19:00</p>
-              </li>
-              <li class="contact-box__items-item contact-item">
-                <p class="contact-item__text">定休日:毎週火曜日</p>
-              </li>
-            </ul>
-            <div class="contact-box__map">
-              <iframe class="contact-box__img"
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2467.513625872067!2d127.69482336933658!3d26.222972059058005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z6YKj6KaH5biCMS0x!5e0!3m2!1sja!2sjp!4v1708751870509!5m2!1sja!2sjp"
-                width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="contact__title-layout">
-          <div class="contact__title section-title">
-            <p class="section-title__sub--large">Contact</p>
-            <h2 class="section-title__main">お問い合わせ</h2>
-          </div>
-          <p class="contact__title-text">ご予約・お問い合わせはコチラ</p>
-          <div class="contact__button-layout">
-            <a href="<?php echo esc_url(home_url('/')); ?>contact" class="button">Contact&nbsp;us<span
-                class="button-arrow2"></span><span class="button-arrow"></span> </a>
-          </div>
-
-          <?php get_footer(); ?>
+  <?php get_footer(); ?>
