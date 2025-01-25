@@ -47,27 +47,26 @@
       <h2 class="section-title__main">フォト</h2>
     </div>
     <?php
-// SCFから繰り返しフィールドを取得
-$gallery_images = SCF::get('gallery_images'); // 繰り返しフィールド名 'gallery_images'
-if (!empty($gallery_images)): // 繰り返しフィールドが空でない場合
-    echo '<div class="gallery-wrapper">';
-    foreach ($gallery_images as $gallery_image): // 繰り返し処理
-        // 各サブフィールドの画像URLを取得して出力
-        for ($i = 1; $i <= 6; $i++): // gallery-image1 から gallery-image6 までループ
-            $field_name = 'gallery-image' . $i; // 動的にフィールド名を生成
-            if (!empty($gallery_image[$field_name])): // フィールドが空でないか確認
-                $image_url = wp_get_attachment_url($gallery_image[$field_name]); // 画像URLを取得
-                if ($image_url):
-                    echo '<div class="gallery-item">';
-                    echo '<img src="' . esc_url($image_url) . '" alt="ギャラリー画像">';
-                    echo '</div>';
+    // SCFから繰り返しフィールドを取得
+    $gallery_images = SCF::get('gallery_images'); // 繰り返しフィールド名 'gallery_images'
+    if (!empty($gallery_images)): // 繰り返しフィールドが空でない場合
+        echo '<div class="gallery-wrapper">';
+        foreach ($gallery_images as $gallery_image): // 繰り返し処理
+            // 各サブフィールドの画像URLを取得して出力
+            for ($i = 1; $i <= 6; $i++): // gallery-image1 から gallery-image6 までループ
+                $field_name = 'gallery-image' . $i; // 動的にフィールド名を生成
+                if (!empty($gallery_image[$field_name])): // フィールドが空でないか確認
+                    $image_url = wp_get_attachment_url($gallery_image[$field_name]); // 画像URLを取得
+                    if ($image_url):
+                        echo '<div class="gallery-item">';
+                        echo '<img src="' . esc_url($image_url) . '" alt="ギャラリー画像">';
+                        echo '</div>';
+                    endif;
                 endif;
-            endif;
-        endfor;
-    endforeach;
-    echo '</div>';
-endif;
-?>
+            endfor;
+        endforeach;
+        echo '</div>';
+     endif;?>
 
   </div>
   <!-- モーダル -->
@@ -118,6 +117,5 @@ endif;
     </ul>
   </div>
 </section>
-
 
 <?php get_footer(); ?>

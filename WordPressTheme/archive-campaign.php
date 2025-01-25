@@ -36,7 +36,7 @@ foreach ($desired_order as $slug):
   $term = get_term_by('slug', $slug, 'campaign_category');
   if ($term && !is_wp_error($term)):
     $is_active = (is_tax('campaign_category', $term->slug)) ? 'is-active' : '';
-?>
+     ?>
       <a href="<?php echo esc_url(get_term_link($term)); ?>"
         class="campaign-tab__item <?php echo esc_attr($is_active); ?>">
         <?php echo esc_html($term->name); ?>

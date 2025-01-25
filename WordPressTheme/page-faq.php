@@ -42,7 +42,6 @@ if (!empty($faq_list)): ?>
               </div>
             </div>
             <?php endforeach; ?>
-
           </div>
         </div>
       </div>

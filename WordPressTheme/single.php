@@ -15,8 +15,6 @@
 <!--パンくず-->
 <?php get_template_part('parts/breadcrumb') ?>
 
-
-
 <!--ブログ-->
 <section class="blog-page blog-page-top">
   <div class="blog-page__inner inner">
