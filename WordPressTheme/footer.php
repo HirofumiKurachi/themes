@@ -43,8 +43,8 @@
               </div>
               <p class="contact__title-text">ご予約・お問い合わせはコチラ</p>
               <div class="contact__button-layout">
-                <a href="contact-page.html" class="button">Contact&nbsp;us<span class="button-arrow2"></span><span
-                    class="button-arrow"></span> </a>
+                <a href="<?php echo esc_url(home_url('/')); ?>contact" class="button">Contact&nbsp;us<span
+                    class="button-arrow2"></span><span class="button-arrow"></span> </a>
               </div>
               <div class="contact__top-button js-top-button">
                 <a href="">
