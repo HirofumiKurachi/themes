@@ -72,7 +72,7 @@
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.svg" alt="facebook" />
               </a>
               <a href="#" target="_blank" class="footer-title__instagram-logo">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/insta-logo.svg" alt="instagram" />
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/Insta-logo.svg" alt="instagram" />
               </a>
             </div>
           </div>
