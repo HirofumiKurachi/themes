@@ -3668,6 +3668,10 @@ input[type=checkbox]:checked + .personal-information__check-label::after {
 	width: 100%;
 }
 
+.price-page-item {
+	scroll-margin-top: 2.5rem;
+}
+
 .price-page__inner {
 	max-width: 37.5rem;
 	position: relative;
@@ -5842,6 +5846,7 @@ html {
 
 .price-page-item {
 	display: flex;
+	scroll-margin-top: 4.375rem;
 }
 
 .price-page__inner::before {

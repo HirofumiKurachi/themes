@@ -20,7 +20,8 @@
 <section class="price-page price-page-top">
   <div class="price-page__inner inner">
     <div class="price-page__items price-page-items">
-      <div class="price-page-items__item price-page-item">
+      <!--WP化に伴い、id追加-->
+      <div id="license_courses" class="price-page-items__item price-page-item">
         <h2 class="price-page-item__head-sp">ライセンス講習</h2>
         <h2 class="price-page-item__head-pc">ライセンス講習</h2>
         <?php
@@ -32,7 +33,7 @@
           <?php foreach ($license_courses as $item): ?>
           <?php
          // 数値変換用に不要な文字を削除
-           $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']); 
+           $clean_price = preg_replace('/[^\d]/', '', $item['course_price-1']);
           ?>
           <tr>
             <td class="price-page-box__name">
@@ -45,9 +46,9 @@
           <?php endforeach; ?>
         </table>
         <?php endif; ?>
-
       </div>
-      <div class="price-page-items__item price-page-item">
+      <!--WP化に伴い、id追加-->
+      <div id="experience_diving" class="price-page-items__item price-page-item">
         <h2 class="price-page-item__head-sp">体験ダイビング</h2>
         <h2 class="price-page-item__head-pc-long">体験ダイビング</h2>
         <?php
@@ -73,7 +74,8 @@
         </table>
         <?php endif; ?>
       </div>
-      <div class="price-page-items__item price-page-item">
+      <!--WP化に伴い、id追加-->
+      <div id="fun_diving" class="price-page-items__item price-page-item">
         <h2 class="price-page-item__head-sp-middle">ファンダイビング</h2>
         <h2 class="price-page-item__head-pc-long">ファンダイビング</h2>
         <?php

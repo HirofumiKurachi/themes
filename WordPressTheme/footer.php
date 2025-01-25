@@ -1,4 +1,5 @@
       <!--コンタクト-->
+      <?php if (!is_page(array('contact', 'thanks')) && !is_404()): ?>
       <section class="contact contact-top">
         <div class="contact__inner inner">
           <div class="contact__container">
@@ -54,6 +55,7 @@
           </div>
         </div>
       </section>
+      <?php endif; ?>
       </main>
       <!--フッター-->
       <footer class="footer footer-top">
@@ -78,13 +80,36 @@
             <div class="footer-menu__left">
               <ul class="footer-menu__left-items-upper">
                 <li class="footer-menu__item">
-                  <a href="<?php echo esc_url(home_url('/')); ?>campaign" class="footer-menu__link-main">
+                  <?php
+                   // タクソノミー 'campaign_category' のタームを動的に取得
+                   $campaign_categories = get_terms(array(
+                     'taxonomy' => 'campaign_category', // タクソノミー名
+                     'hide_empty' => false,             // 投稿がないタームも取得
+                   ));
+
+                   // タームスラッグをキーとしてタームデータをマッピング
+                   $category_links = array();
+                   if (!empty($campaign_categories) && !is_wp_error($campaign_categories)) {
+                     foreach ($campaign_categories as $category) {
+                       $category_links[$category->slug] = get_term_link($category);
+                     }
+                   }
+                   ?>
+
+                <li class="footer-menu__item">
+                  <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="footer-menu__link-main">
                     <p class="footer-menu__logo-text">キャンペーン</p>
                   </a>
                 </li>
-                <li class="footer-menu__item-text"><a href="#">ライセンス取得</a></li>
-                <li class="footer-menu__item-text"><a href="#">貸切体験ダイビング</a></li>
-                <li class="footer-menu__item-text"><a href="#">ナイトダイビング</a></li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url($category_links['license-courses'] ?? '#'); ?>">ライセンス取得</a>
+                </li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url($category_links['fun-diving'] ?? '#'); ?>">ファンダイビング</a>
+                </li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url($category_links['experience-diving'] ?? '#'); ?>">体験ダイビング</a>
+                </li>
                 <li class="footer-menu__item">
                   <a href="<?php echo esc_url(home_url('/')); ?>about-us" class="footer-menu__link-sub">
                     <p class="footer-menu__logo-text">私たちについて</p>
@@ -97,9 +122,15 @@
                     <p class="footer-menu__logo-text">ダイビング情報</p>
                   </a>
                 </li>
-                <li class="footer-menu__item-text"><a href="information-page.html?id=tab1">ライセンス講習</a></li>
-                <li class="footer-menu__item-text"><a href="information-page.html?id=tab3">体験ダイビング</a></li>
-                <li class="footer-menu__item-text"><a href="information-page.html?id=tab2">ファンダイビング</a></li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url(add_query_arg('id', 'tab1', home_url('/information'))); ?>">ライセンス講習</a>
+                </li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url(add_query_arg('id', 'tab3', home_url('/information'))); ?>">体験ダイビング</a>
+                </li>
+                <li class="footer-menu__item-text">
+                  <a href="<?php echo esc_url(add_query_arg('id', 'tab2', home_url('/information'))); ?>">ファンダイビング</a>
+                </li>
                 <li class="footer-menu__item">
                   <a href="<?php echo esc_url(home_url('/')); ?>blog" class="footer-menu__link-sub">
                     <p class="footer-menu__logo-text">ブログ</p>
@@ -119,9 +150,16 @@
                     <p class="footer-menu__logo-text">料金一覧</p>
                   </a>
                 </li>
-                <li class="footer-menu__item-text-b"><a href="information-page.html?id=tab1">ライセンス講習</a></li>
-                <li class="footer-menu__item-text-b"><a href="information-page.html?id=tab3">体験ダイビング</a></li>
-                <li class="footer-menu__item-text-b"><a href="information-page.html?id=tab2">ファンダイビング</a></li>
+                <li class="footer-menu__item-text-b">
+                  <a href="<?php echo esc_url(home_url('/price#license_courses')); ?>">ライセンス講習</a>
+                </li>
+                <li class="footer-menu__item-text-b">
+                  <a href="<?php echo esc_url(home_url('/price#experience_diving')); ?>">体験ダイビング</a>
+                </li>
+                <li class="footer-menu__item-text-b">
+                  <a href="<?php echo esc_url(home_url('/price#fun_diving')); ?>">ファンダイビング</a>
+                </li>
+
               </ul>
               <ul class="footer-menu__right-items-bottom">
                 <li class="footer-menu__item">
