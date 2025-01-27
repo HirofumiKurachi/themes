@@ -68,10 +68,10 @@
               </h3>
             </a>
             <div class="footer-title__logo-box">
-              <a href="#" target="_blank" class="footer-title__facebook-logo">
+              <a href="https://www.facebook.com/" target="_blank" class="footer-title__facebook-logo">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.svg" alt="facebook" />
               </a>
-              <a href="#" target="_blank" class="footer-title__instagram-logo">
+              <a href="https://www.instagram.com/" target="_blank" class="footer-title__instagram-logo">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/Insta-logo.svg" alt="instagram" />
               </a>
             </div>

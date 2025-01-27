@@ -109,8 +109,8 @@ foreach ($desired_order as $slug):
             <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>
           </div>
           <div class="campaign-card__layout md-none">
-            <a href="#" class="button">Contact&nbsp;us<span class="button-arrow2"></span><span
-                class="button-arrow"></span> </a>
+            <a href="<?php echo esc_url(home_url('/')); ?>contact" class="button">Contact&nbsp;us<span
+                class="button-arrow2"></span><span class="button-arrow"></span> </a>
           </div>
         </div>
       </li>
