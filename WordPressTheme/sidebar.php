@@ -212,22 +212,21 @@
       </div>
       <h2 class="blog-heading__title">アーカイブ</h2>
     </div>
-    <div class="blog-heading__accordion blog-heading-accordion js-blog-heading-accordion">
+
+    <!-- アコーディオンのラッパー -->
+    <div class="blog-heading__accordion js-blog-heading-accordion">
       <div class="blog-heading-accordion__container">
         <?php
-    global $wpdb;
+      // 年ごとの投稿データを取得
+      $years = $wpdb->get_results("
+        SELECT DISTINCT YEAR(post_date) AS year
+        FROM $wpdb->posts
+        WHERE post_status = 'publish' AND post_type = 'post'
+        ORDER BY year DESC
+      ");
 
-    // 投稿の年ごとのデータを取得
-    $years = $wpdb->get_results("
-      SELECT DISTINCT YEAR(post_date) AS year
-      FROM $wpdb->posts
-      WHERE post_status = 'publish' AND post_type = 'post'
-      ORDER BY year DESC
-    ");
-
-    // 取得した年ごとにループを回す
-    foreach ($years as $year) :
-    ?>
+      // 年ごとにループを回す
+      foreach ($years as $year) : ?>
         <div class="blog-heading-accordion__item js-blog-heading-accordion__item">
           <!-- 年を表示 -->
           <h3 class="blog-heading-accordion__title js-blog-heading-accordion__title">
@@ -235,19 +234,18 @@
           </h3>
           <div class="blog-heading-accordion__content js-blog-heading-accordion__content">
             <?php
-          // 月ごとのデータを取得
-          $months = $wpdb->get_results("
-            SELECT DISTINCT MONTH(post_date) AS month
-            FROM $wpdb->posts
-            WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = $year->year
-            ORDER BY month DESC
-          ");
+            // 月ごとの投稿データを取得
+            $months = $wpdb->get_results("
+              SELECT DISTINCT MONTH(post_date) AS month
+              FROM $wpdb->posts
+              WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = $year->year
+              ORDER BY month DESC
+            ");
 
-          // 月ごとにリンクを表示
-          foreach ($months as $month) :
-            $month_name = date('F', mktime(0, 0, 0, $month->month, 1));
-          ?>
+            // 月ごとにループを回す
+            foreach ($months as $month) : ?>
             <p class="blog-heading-accordion__text">
+              <!-- 月リンク -->
               <a href="<?php echo esc_url(get_month_link($year->year, $month->month)); ?>">
                 <?php echo esc_html($month->month); ?>月
               </a>
@@ -258,6 +256,7 @@
         <?php endforeach; ?>
       </div>
     </div>
-
   </div>
+
+
 </aside>
