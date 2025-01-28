@@ -142,6 +142,7 @@
       </div>
     </div>
   </section>
+
   <!--インフォメーション-->
   <section class="information information-top">
     <div class="information__inner inner">
@@ -166,6 +167,7 @@
       </div>
     </div>
   </section>
+
   <!--ブログ-->
   <section class="blog blog-top">
     <div class="blog__inner inner">
@@ -204,7 +206,7 @@
               </time>
               <h3 class="blog-card__text"><?php the_title(); ?></h3>
               <p class="blog-card__text-sub">
-                <?php the_content(); ?>
+                <?php echo wp_trim_words( get_the_content(), 85 , '…' ); ?>
               </p>
             </div>
           </div>
@@ -274,7 +276,7 @@
             </div>
             <div class="voice-card__text-box">
               <p class="voice-card__text-sub">
-                <?php the_field('text_sub') ?>
+                <?php echo wp_trim_words( get_field('text_sub'), 300, '…' ); ?>
               </p>
             </div>
           </div>
