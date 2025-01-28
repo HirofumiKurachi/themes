@@ -23,30 +23,57 @@
       <div class="site-map-menu__left">
         <ul class="site-map-menu__left-items-upper">
           <li class="site-map-menu__item">
-            <a href="#" class="site-map-menu__link-main">
+            <?php
+              // タクソノミー 'campaign_category' のタームを動的に取得
+              $campaign_categories = get_terms(array(
+                'taxonomy' => 'campaign_category', // タクソノミー名
+                'hide_empty' => false,             // 投稿がないタームも取得
+              ));
+
+              // タームスラッグをキーとしてタームデータをマッピング
+              $category_links = array();
+              if (!empty($campaign_categories) && !is_wp_error($campaign_categories)) {
+                foreach ($campaign_categories as $category) {
+                  $category_links[$category->slug] = get_term_link($category);
+                }
+              }
+            ?>
+            <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="site-map-menu__link-main">
               <p class="site-map-menu__logo-text">キャンペーン</p>
             </a>
           </li>
-          <li class="site-map-menu__item-text"><a href="#">ライセンス取得</a></li>
-          <li class="site-map-menu__item-text"><a href="#">貸切体験ダイビング</a></li>
-          <li class="site-map-menu__item-text"><a href="#">ナイトダイビング</a></li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url($category_links['license-courses'] ?? '#'); ?>">ライセンス取得</a>
+          </li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url($category_links['fun-diving'] ?? '#'); ?>">貸切体験ダイビング</a>
+          </li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url($category_links['experience-diving'] ?? '#'); ?>">ナイトダイビング</a>
+          </li>
           <li class="site-map-menu__item">
-            <a href="#" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>about-us" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">私たちについて</p>
             </a>
           </li>
         </ul>
         <ul class="site-map-menu__left-items-bottom">
           <li class="site-map-menu__item">
-            <a href="#" class="site-map-menu__link-main">
+            <a href="<?php echo esc_url(home_url('/')); ?>information" class="site-map-menu__link-main">
               <p class="site-map-menu__logo-text">ダイビング情報</p>
             </a>
           </li>
-          <li class="site-map-menu__item-text"><a href="information-page.html?id=tab1">ライセンス講習</a></li>
-          <li class="site-map-menu__item-text"><a href="information-page.html?id=tab3">体験ダイビング</a></li>
-          <li class="site-map-menu__item-text"><a href="information-page.html?id=tab2">ファンダイビング</a></li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url(add_query_arg('id', 'tab1', home_url('/information'))); ?>">ライセンス講習</a>
+          </li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url(add_query_arg('id', 'tab3', home_url('/information'))); ?>">体験ダイビング</a>
+          </li>
+          <li class="site-map-menu__item-text">
+            <a href="<?php echo esc_url(add_query_arg('id', 'tab2', home_url('/information'))); ?>">ファンダイビング</a>
+          </li>
           <li class="site-map-menu__item">
-            <a href="blog-page.html" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>blog" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">ブログ</p>
             </a>
           </li>
@@ -55,37 +82,43 @@
       <div class="site-map-menu__right">
         <ul class="site-map-menu__right-items-upper">
           <li class="site-map-menu__item">
-            <a href="voice-page.html" class="site-map-menu__link-main">
+            <a href="<?php echo esc_url(home_url('/')); ?>voice" class="site-map-menu__link-main">
               <p class="site-map-menu__logo-text">お客様の声</p>
             </a>
           </li>
           <li class="site-map-menu__item">
-            <a href="price-page.html" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>price" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">料金一覧</p>
             </a>
           </li>
-          <li class="site-map-menu__item-text-b"><a href="information-page.html?id=tab1">ライセンス講習</a></li>
-          <li class="site-map-menu__item-text-b"><a href="information-page.html?id=tab3">体験ダイビング</a></li>
-          <li class="site-map-menu__item-text-b"><a href="information-page.html?id=tab2">ファンダイビング</a></li>
+          <li class="site-map-menu__item-text-b">
+            <a href="<?php echo esc_url(home_url('/price#license_courses')); ?>">ライセンス講習</a>
+          </li>
+          <li class="site-map-menu__item-text-b">
+            <a href="<?php echo esc_url(home_url('/price#experience_diving')); ?>">体験ダイビング</a>
+          </li>
+          <li class="site-map-menu__item-text-b">
+            <a href="<?php echo esc_url(home_url('/price#fun_diving')); ?>">ファンダイビング</a>
+          </li>
         </ul>
         <ul class="site-map-menu__right-items-bottom">
           <li class="site-map-menu__item">
-            <a href="faq-page.html" class="site-map-menu__link-main">
+            <a href="<?php echo esc_url(home_url('/')); ?>faq" class="site-map-menu__link-main">
               <p class="site-map-menu__logo-text">よくある質問</p>
             </a>
           </li>
           <li class="site-map-menu__item">
-            <a href="privacy-page.html" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>privacypolicy" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">プライバシー<br class="md-show" />ポリシー</p>
             </a>
           </li>
           <li class="site-map-menu__item">
-            <a href="terms-page.html" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>term-of-service" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">利用規約</p>
             </a>
           </li>
           <li class="site-map-menu__item">
-            <a href="contact-page.html" class="site-map-menu__link-sub">
+            <a href="<?php echo esc_url(home_url('/')); ?>contact" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">お問い合わせ</p>
             </a>
           </li>
