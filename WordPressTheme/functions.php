@@ -89,6 +89,19 @@ function modify_posts_per_page_for_archives( $query ) {
 }
 add_action( 'pre_get_posts', 'modify_posts_per_page_for_archives' );
 
+    //campaign_categoryの表示件数調整
+    function customize_taxonomy_campaign_query($query) {
+        // 管理画面やメインクエリ以外には適用しない
+        if (is_admin() || !$query->is_main_query()) {
+            return;
+        }
+
+        // カスタムタクソノミーのクエリに適用
+        if (is_tax('campaign_category')) {
+            $query->set('posts_per_page', 4); // 1ページあたりの表示件数を設定
+        }
+    }
+
 
     //アイキャッチ等の設定
     function my_setup()
@@ -186,18 +199,7 @@ add_action( 'pre_get_posts', 'modify_posts_per_page_for_archives' );
     }
     add_action('widgets_init', 'my_theme_sidebar_init');
 
-    //campaign_categoryの表示件数調整
-    function customize_taxonomy_campaign_query($query) {
-        // 管理画面やメインクエリ以外には適用しない
-        if (is_admin() || !$query->is_main_query()) {
-            return;
-        }
 
-        // カスタムタクソノミーのクエリに適用
-        if (is_tax('campaign_category')) {
-            $query->set('posts_per_page', 4); // 1ページあたりの表示件数を設定
-        }
-    }
     add_action('pre_get_posts', 'customize_taxonomy_campaign_query');
 
 
