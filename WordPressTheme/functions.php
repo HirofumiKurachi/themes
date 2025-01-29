@@ -102,6 +102,22 @@ add_action( 'pre_get_posts', 'modify_posts_per_page_for_archives' );
         }
     }
 
+    //voice_categoryの表示件数調整
+    function customize_taxonomy_voice_query($query) {
+        // 管理画面やメインクエリ以外には適用しない
+        if (is_admin() || !$query->is_main_query()) {
+            return;
+        }
+
+        // voice_category（カスタムタクソノミーページ）の場合
+        if (is_tax('voice_category')) {
+            $query->set('posts_per_page', 6); // 1ページあたりの表示件数を6件に設定
+            $query->set('paged', get_query_var('paged') ? get_query_var('paged') : 1); // 現在のページ番号を取得
+        }
+    }
+    add_action('pre_get_posts', 'customize_taxonomy_voice_query');
+
+
 
     //アイキャッチ等の設定
     function my_setup()
