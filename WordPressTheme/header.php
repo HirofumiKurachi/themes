@@ -149,6 +149,11 @@
                   </a>
                 </li>
                 <li class="drawer-menu__item">
+                  <a href="<?php echo esc_url(home_url('/')); ?>sitemap" class="drawer-menu__link-sub">
+                    <p class="drawer__logo-text">サイトマップ</p>
+                  </a>
+                </li>
+                <li class="drawer-menu__item">
                   <a href="<?php echo esc_url(home_url('/')); ?>contact" class="drawer-menu__link-sub">
                     <p class="drawer__logo-text">お問い合わせ</p>
                   </a>

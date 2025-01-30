@@ -178,13 +178,13 @@
                   </a>
                 </li>
                 <li class="footer-menu__item">
-                  <a href="<?php echo esc_url(home_url('/')); ?>contact" class="footer-menu__link-sub">
-                    <p class="footer-menu__logo-text">お問い合わせ</p>
+                  <a href="<?php echo esc_url(home_url('/')); ?>sitemap" class="footer-menu__link-sub">
+                    <p class="footer-menu__logo-text">サイトマップ</p>
                   </a>
                 </li>
                 <li class="footer-menu__item">
-                  <a href="<?php echo esc_url(home_url('/')); ?>sitemap" class="footer-menu__link-sub">
-                    <p class="footer-menu__logo-text">サイトマップ</p>
+                  <a href="<?php echo esc_url(home_url('/')); ?>contact" class="footer-menu__link-sub">
+                    <p class="footer-menu__logo-text">お問い合わせ</p>
                   </a>
                 </li>
               </ul>

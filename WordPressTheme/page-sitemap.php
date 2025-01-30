@@ -118,6 +118,11 @@
             </a>
           </li>
           <li class="site-map-menu__item">
+            <a href="<?php echo esc_url(home_url('/')); ?>sitemap" class="site-map-menu__link-sub">
+              <p class="site-map-menu__logo-text">サイトマップ</p>
+            </a>
+          </li>
+          <li class="site-map-menu__item">
             <a href="<?php echo esc_url(home_url('/')); ?>contact" class="site-map-menu__link-sub">
               <p class="site-map-menu__logo-text">お問い合わせ</p>
             </a>
