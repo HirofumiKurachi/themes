@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="page-404__button-layout">
-          <a href="contact-page.html" class="page-404__button">Page TOP<span
+          <a href="<?php echo esc_url(home_url('/')); ?>top" class="page-404__button">Page TOP<span
               class="page-404__button-arrow2"></span><span class="page-404__button-arrow"></span> </a>
         </div>
       </section>
