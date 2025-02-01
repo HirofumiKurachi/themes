@@ -39,24 +39,6 @@
             <p>
               <?php the_content(); ?>
             </p>
-            <figure>
-              <?php if(get_the_post_thumbnail()): ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
-              <?php else: ?>
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="noimage">
-              <?php endif; ?>
-            </figure>
-            <p>
-              <?php the_content(); ?>
-            </p>
-            <ul>
-              <li>リスト１</li>
-              <li>リスト２</li>
-              <li>リスト３</li>
-            </ul>
-            <p>
-              <?php the_content(); ?>
-            </p>
           </div>
         </div>
         <div class="blog-page-detail__pagination blog-page-detail-pagination-top pagination-detail">

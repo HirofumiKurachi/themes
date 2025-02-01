@@ -23,32 +23,38 @@
       <div class="blog-page-container__left">
         <div class="blog-page-container__cards blog-page-cards">
           <!-- ループ処理開始 -->
-          <?php if (have_posts()):
-      while (have_posts()): the_post(); ?>
+          <?php if (have_posts()): while (have_posts()): the_post(); ?>
           <a href="<?php the_permalink(); ?>" class="blog-cards__item-box blog-card">
             <div class="blog-card__item">
               <div class="blog-card__img">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
+                <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('medium'); ?>
+                <?php else : ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg" alt="デフォルト画像">
+                <?php endif; ?>
               </div>
               <div class="blog-card__body">
                 <time class="blog-card__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
                 <h3 class="blog-card__text"><?php the_title(); ?></h3>
                 <p class="blog-card__text-sub">
-                  <?php the_content(); ?>
+                  <?php echo wp_trim_words(get_the_excerpt(), 85, '...'); ?>
                 </p>
               </div>
             </div>
           </a>
           <!-- ループ終了 -->
           <?php endwhile; endif; ?>
-
         </div>
+
+        <!-- ページネーション -->
         <div class="pagination-blog pagination-blog-top">
           <div class="pagination-blog__inner inner">
-            <?php wp_pagenavi(); ?>
+            <?php if (function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
           </div>
         </div>
       </div>
+
+      <!-- サイドバー -->
       <div class="blog-page-container__right">
         <div class="blog-page-container__heading blog-heading blog-heading-top">
           <div class="blog-heading__inner">
@@ -59,6 +65,7 @@
     </div>
   </div>
 </section>
+
 
 
 <?php get_footer(); ?>
