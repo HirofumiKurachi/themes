@@ -4,14 +4,8 @@
   <div class="wrap">
     <main>
       <!--パンくず-->
-      <div class="breadcrumb-404 breadcrumb-404-top">
-        <div class="breadcrumb-404__inner inner">
-          <span>
-            <a href="./"><span>TOP</span></a>
-          </span>
-          <span>404</span>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb') ?>
+
       <!--404-->
       <section class="page-404 page-404-top">
         <div class="page-404__inner inner">
