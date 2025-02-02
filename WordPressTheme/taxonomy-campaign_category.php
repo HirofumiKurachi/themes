@@ -61,7 +61,16 @@ foreach ($desired_order as $slug):
         </div>
         <div class="campaign-card__body-large">
           <div class="campaign-card__text">
-            <p class="campaign-card__title"><?php the_field('title_sub') ?></p>
+            <!-- キャンペーンカテゴリーを取得して表示 -->
+            <?php
+            $categories = get_the_terms(get_the_ID(), 'campaign_category'); // カスタムタクソノミー取得
+            if ($categories && !is_wp_error($categories)) :
+              $category_name = $categories[0]->name; // 最初のカテゴリーを取得
+            else :
+              $category_name = '未分類'; // カテゴリーがない場合のデフォルト値
+            endif;
+            ?>
+            <p class="campaign-card__title"><?php echo esc_html($category_name); ?></p>
             <p class="campaign-card__title-sub-large"><?php the_title(); ?></p>
           </div>
           <div class="campaign-card__price-campaign">

@@ -59,7 +59,16 @@ foreach ($desired_order as $slug):
             <div class="voice-card__title-box">
               <div class="voice-card__title-box1">
                 <p class="voice-card__title-sub"><?php the_field('title_sub') ?></p>
-                <p class="voice-card__title"><?php the_title(); ?></p>
+                <!-- ボイスカテゴリーを取得して表示 -->
+                <?php
+                 $categories = get_the_terms(get_the_ID(), 'voice_category'); // カスタムタクソノミー取得
+                 if ($categories && !is_wp_error($categories)) :
+                   $category_name = $categories[0]->name; // 最初のカテゴリーを取得
+                 else :
+                   $category_name = '未分類'; // カテゴリーがない場合のデフォルト値
+                 endif;
+                 ?>
+                <p class="voice-card__title"><?php echo esc_html($category_name); ?></p>
               </div>
               <div class="voice-card__title-box2">
                 <p class="voice-card__title-text"><?php the_field('title-text') ?></p>
