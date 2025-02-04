@@ -201,7 +201,7 @@
               <?php endif; ?>
             </div>
             <div class="blog-card__body">
-              <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>">
+              <time class="blog-card__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?>>
                 <?php echo get_the_date('Y.m.d'); ?>
               </time>
               <h3 class="blog-card__text"><?php the_title(); ?></h3>
