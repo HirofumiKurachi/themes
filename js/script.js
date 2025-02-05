@@ -42,27 +42,24 @@ jQuery(function ($) {
   });
 
   // モーダル
-  $(function () {
+  jQuery(function ($) {
     var open = $(".js-modal-open"),
-      close = $(".js-modal-close");
+        close = $(".js-modal-close");
 
-    // 各画像のクリックイベントを個別に処理
+    // 画像をクリックするとモーダルが開く
     open.on("click", function () {
-      // クリックされた画像のdata-target属性値を取得
-      var target = $(this).data("target");
-      // 対応するモーダルを開く
-      $("#gallery-modal-".concat(target)).addClass("is-open");
-      // htmlとbodyにoverflow: hidden;を直接適用してスクロールを無効にする
-      $('html, body').css('overflow', 'hidden');
+      var target = $(this).data("target"); // data-target の値を取得
+      $("#gallery-modal-" + target).addClass("is-open"); // 該当モーダルを表示
+      $("html, body").css("overflow", "hidden"); // スクロール無効化
     });
 
-    // 閉じるボタンをクリックしたらモーダルを閉じる
+    // モーダルをクリックすると閉じる
     close.on("click", function () {
-      $(this).closest(".gallery-modal__item").removeClass("is-open");
-      // htmlとbodyからoverflow: hidden;を削除してスクロールを有効にする
-      $('html, body').css('overflow', '');
+      $(this).closest(".gallery-modal__item").removeClass("is-open"); // クラスを削除
+      $("html, body").css("overflow", ""); // スクロール有効化
     });
   });
+
 
   //別ページからアクティブなタブへのリンク
   $(document).ready(function () {
