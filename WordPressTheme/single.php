@@ -36,9 +36,7 @@
             <?php endif; ?>
           </figure>
           <div class="blog-cards-detail__item-container">
-            <p>
-              <?php the_content(); ?>
-            </p>
+            <?php the_content(); ?>
           </div>
         </div>
         <div class="blog-page-detail__pagination blog-page-detail-pagination-top pagination-detail">
