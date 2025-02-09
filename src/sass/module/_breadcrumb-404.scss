@@ -14,7 +14,7 @@
   }
 }
 
-.breadcrumb-404 a span::after {
+.breadcrumb.breadcrumb-404 a span::after {
   border-right: rem(1) solid $white;
   border-top: rem(1) solid $white;
   content: "";

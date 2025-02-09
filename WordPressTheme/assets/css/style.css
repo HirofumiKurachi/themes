@@ -1207,7 +1207,7 @@ body {
 	padding-top: 5.5rem;
 }
 
-.breadcrumb-404 a span::after {
+.breadcrumb.breadcrumb-404 a span::after {
 	border-right: 0.0625rem solid #fff;
 	border-top: 0.0625rem solid #fff;
 	content: "";
