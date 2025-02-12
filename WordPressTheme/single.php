@@ -30,9 +30,11 @@
           </div>
           <figure class="blog-cards-detail__item-box">
             <?php if(get_the_post_thumbnail()): ?>
+            <!-- アイキャッチ画像を表示 -->
             <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
             <?php else: ?>
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="noimage">
+            <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/no-image.jpg" alt="No Image">
             <?php endif; ?>
           </figure>
           <div class="blog-cards-detail__item-container">

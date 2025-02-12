@@ -28,6 +28,10 @@
   }
 }
 
+.campaign-card__img img[src*="no-image.jpg"] {
+  object-fit: contain; /* no-image.jpg のみ contain */
+}
+
 .campaign-card__body {
   padding-top: rem(16);
   padding-right: rem(17);
@@ -152,7 +156,7 @@
 
 .campaign-card__img-large img {
   aspect-ratio: 280/188;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 
   @include mq("md") {

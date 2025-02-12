@@ -26,25 +26,33 @@
         ALL
       </a>
 
-      <!-- カスタムタクソノミーのターム一覧を出力 -->
+      <!-- カスタムタクソノミーのターム一覧を取得してループ -->
       <?php
-// 手動で並べたいタームスラッグ順
-$desired_order = array('license-courses', 'fun-diving', 'experience-diving');
+      // `campaign_category` の全タームを取得
+      $terms = get_terms(array(
+        'taxonomy'   => 'campaign_category', // 取得するタクソノミーの指定
+        'hide_empty' => false, // 投稿が0件のタームも含める
+      ));
 
-// 手動順でターム情報を取得
-foreach ($desired_order as $slug):
-  $term = get_term_by('slug', $slug, 'campaign_category');
-  if ($term && !is_wp_error($term)):
-    $is_active = (is_tax('campaign_category', $term->slug)) ? 'is-active' : '';
-     ?>
+      // 取得したタームをループで出力
+      if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+          // 現在表示中のカテゴリーなら `is-active` クラスを付与
+          $is_active = is_tax('campaign_category', $term->slug) ? 'is-active' : '';
+          ?>
       <a href="<?php echo esc_url(get_term_link($term)); ?>"
         class="campaign-tab__item <?php echo esc_attr($is_active); ?>">
         <?php echo esc_html($term->name); ?>
       </a>
-      <?php endif; endforeach; ?>
+      <?php
+        }
+      }
+      ?>
+
     </div>
   </div>
 </div>
+
 
 
 <!--コンテンツ-->
@@ -57,8 +65,16 @@ foreach ($desired_order as $slug):
        the_post(); ?>
       <li class="campaign-page-card__item campaign-card">
         <div class="campaign-card__img-large">
-          <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
+          <?php if (has_post_thumbnail()) : ?>
+          <!-- アイキャッチ画像を表示 -->
+          <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+            alt="<?php echo esc_attr(get_the_title()); ?>">
+          <?php else : ?>
+          <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/no-image.jpg" alt="No Image">
+          <?php endif; ?>
         </div>
+
         <div class="campaign-card__body-large">
           <div class="campaign-card__text">
             <!-- キャンペーンカテゴリーを取得して表示 -->

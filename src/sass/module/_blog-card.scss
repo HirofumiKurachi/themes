@@ -44,7 +44,7 @@
 
 .blog-card__img img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   aspect-ratio: 301/201;
 }
 
@@ -108,11 +108,6 @@
   }
 }
 
-.blog-card__img img {
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 301/201;
-}
 
 .blog-card__img {
   transform: scale(1);
@@ -132,4 +127,8 @@
   object-fit: cover;
   aspect-ratio: 301/201;
   transition: transform 0.5s ease-in-out; /* トランジションを一貫して設定 */
+}
+
+.blog-card__img img[src*="no-image.jpg"] {
+  object-fit: contain; /* no-image.jpg のみ contain */
 }

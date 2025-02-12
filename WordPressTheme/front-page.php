@@ -61,11 +61,11 @@
                 <div class="campaign-card__img">
                   <?php if (has_post_thumbnail()) : ?>
                   <!-- 投稿のアイキャッチ画像を表示 -->
-                  <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+                  <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+                    alt="<?php echo esc_attr(get_the_title()); ?>">
                   <?php else : ?>
                   <!-- アイキャッチ画像がない場合のデフォルト画像 -->
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-campaign.jpg"
-                    alt="<?php the_title(); ?>">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/no-image.jpg" alt="<?php the_title(); ?>">
                   <?php endif; ?>
                 </div>
                 <div class="campaign-card__body">
@@ -194,15 +194,15 @@
             <div class="blog-card__img">
               <?php if (has_post_thumbnail()) : ?>
               <!-- 投稿のアイキャッチ画像を表示 -->
-              <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+              <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+                alt="<?php echo esc_attr(get_the_title()); ?>">
               <?php else : ?>
               <!-- アイキャッチ画像がない場合のデフォルト画像 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-blog.jpg" alt="<?php the_title(); ?>">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/no-image.jpg" alt="<?php the_title(); ?>">
               <?php endif; ?>
             </div>
             <div class="blog-card__body">
-              <time class="blog-card__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?>>
-                <?php echo get_the_date('Y.m.d'); ?>
+              <time class="blog-card__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?>
               </time>
               <h3 class="blog-card__text"><?php the_title(); ?></h3>
               <p class="blog-card__text-sub">
@@ -266,11 +266,11 @@
               <div class="voice-card__img colorbox">
                 <?php if (has_post_thumbnail()) : ?>
                 <!-- アイキャッチ画像を表示 -->
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+                  alt="<?php echo esc_attr(get_the_title()); ?>">
                 <?php else : ?>
                 <!-- アイキャッチ画像がない場合のデフォルト画像 -->
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/default-voice.jpg"
-                  alt="<?php the_title(); ?>">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/no-image.jpg" alt="<?php the_title(); ?>">
                 <?php endif; ?>
               </div>
             </div>

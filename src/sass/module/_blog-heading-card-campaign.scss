@@ -23,6 +23,10 @@
   width: 100%;
 }
 
+.blog-heading-card-campaign__img img[src*="no-image.jpg"] {
+  object-fit: contain; /* no-image.jpg のみ contain */
+}
+
 .blog-heading-card-campaign__body {
   padding-top: rem(12);
   padding-right: rem(17);

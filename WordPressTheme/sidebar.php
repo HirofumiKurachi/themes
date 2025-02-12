@@ -30,8 +30,11 @@
           <!-- アイキャッチ画像 -->
           <div class="blog-heading-card__img">
             <?php if (has_post_thumbnail()) : ?>
-            <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+            <!-- アイキャッチ画像を表示 -->
+            <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'medium')); ?>"
+              alt="<?php echo esc_attr(get_the_title()); ?>">
             <?php else : ?>
+            <!-- アイキャッチ画像がない場合のデフォルト画像 -->
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image.jpg" alt="No Image">
             <?php endif; ?>
           </div>
@@ -84,8 +87,11 @@
             <!-- アイキャッチ画像 -->
             <div class="blog-heading-card-review__img">
               <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+              <!-- アイキャッチ画像を表示 -->
+              <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'medium')); ?>"
+                alt="<?php echo esc_attr(get_the_title()); ?>">
               <?php else : ?>
+              <!-- アイキャッチ画像がない場合のデフォルト画像 -->
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image.jpg" alt="No Image">
               <?php endif; ?>
             </div>
@@ -146,9 +152,12 @@
       <a href="<?php the_permalink(); ?>" class="blog-heading__card-campaign blog-heading-card-campaign">
         <div class="blog-heading-card-campaign__img">
           <?php if (has_post_thumbnail()) : ?>
-          <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+          <!-- アイキャッチ画像を表示 -->
+          <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+            alt="<?php echo esc_attr(get_the_title()); ?>">
           <?php else : ?>
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image.jpg" alt="No Image">
+          <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/no-image.jpg" alt="No Image">
           <?php endif; ?>
         </div>
         <div class="blog-heading-card-campaign__body">

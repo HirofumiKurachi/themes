@@ -75,7 +75,14 @@ foreach ($desired_order as $slug):
               </div>
             </div>
             <div class="voice-card__img colorbox">
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像画像" />
+              <?php if (has_post_thumbnail()) : ?>
+              <!-- アイキャッチ画像を表示 -->
+              <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>"
+                alt="<?php echo esc_attr(get_the_title()); ?>">
+              <?php else : ?>
+              <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/no-image.jpg" alt="No Image">
+              <?php endif; ?>
             </div>
           </div>
           <div class="voice-card__text-box">

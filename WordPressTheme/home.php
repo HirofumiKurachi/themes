@@ -28,9 +28,13 @@
             <div class="blog-card__item">
               <div class="blog-card__img">
                 <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('medium'); ?>
+                <!-- アイキャッチ画像を表示 -->
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'medium')); ?>"
+                  alt="<?php echo esc_attr(get_the_title()); ?>">
                 <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg" alt="デフォルト画像">
+                <!-- アイキャッチ画像がない場合のデフォルト画像 -->
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/no-image.jpg"
+                  alt="No Image">
                 <?php endif; ?>
               </div>
               <div class="blog-card__body">
