@@ -33,8 +33,8 @@
         'hide_empty' => false, // 投稿が0件のタームも表示
       ));
 
-      if (!empty($terms) && !is_wp_error($terms)) {
-        foreach ($terms as $term) {
+      if (!empty($terms) && !is_wp_error($terms)) :
+        foreach ($terms as $term) :
           $is_active = is_tax('campaign_category', $term->slug) ? 'is-active' : '';
           ?>
       <a href="<?php echo esc_url(get_term_link($term)); ?>"
@@ -42,8 +42,8 @@
         <?php echo esc_html($term->name); ?>
       </a>
       <?php
-        }
-      }
+        endforeach;
+      endif;
       ?>
 
     </div>

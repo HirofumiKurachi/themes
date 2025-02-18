@@ -4,7 +4,7 @@
         <div class="contact__inner inner">
           <div class="contact__container">
             <div class="contact__box contact-box">
-              <a href="index.html" class="contact-box__logo-layout">
+              <a href="<?php echo esc_url(home_url('/')); ?>top" class="contact-box__logo-layout">
                 <h3 class="contact-box__logo">
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/contact-logo.svg" alt="CodeUps" />
                 </h3>

@@ -35,8 +35,8 @@
       ));
 
       // 取得したタームをループで出力
-      if (!empty($terms) && !is_wp_error($terms)) {
-        foreach ($terms as $term) {
+      if (!empty($terms) && !is_wp_error($terms)) :
+        foreach ($terms as $term) :
           // 現在表示中のカテゴリーなら `is-active` クラスを付与
           $is_active = is_tax('campaign_category', $term->slug) ? 'is-active' : '';
           ?>
@@ -45,8 +45,8 @@
         <?php echo esc_html($term->name); ?>
       </a>
       <?php
-        }
-      }
+        endforeach;
+      endif;
       ?>
 
     </div>
