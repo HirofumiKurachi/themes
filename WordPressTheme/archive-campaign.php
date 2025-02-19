@@ -102,41 +102,46 @@
             </p>
             <div class="campaign-card__date">
               <?php
-               // ACFから日付データを取得（YYYY/MM/DD形式）
-               $start_date = get_field('start_year-month-day');
-               $end_date = get_field('end_year-month-day');
+              // ACFの「キャンペーン期間」グループを取得
+              $campaign_period = get_field('campaign_period');
 
-               // データが存在する場合のみ処理
-               if ($start_date && $end_date):
-                 // 年・月・日を取得
-                 list($start_year, $start_month, $start_day) = explode('/', $start_date);
-                 list($end_year, $end_month, $end_day) = explode('/', $end_date);
+              // データが取得できたか確認
+              if ($campaign_period):
+                  $start_date = $campaign_period['start_year-month-day'];
+                  $end_date = $campaign_period['end_year-month-day'];
+              else:
+                  $start_date = null;
+                  $end_date = null;
+              endif;
 
-                 // ゼロ埋めを削除（整数に変換）
-                 $start_month = intval($start_month);
-                 $start_day = intval($start_day);
-                 $end_month = intval($end_month);
-                 $end_day = intval($end_day);
-                 ?>
+              // 日付が取得できた場合のみ処理
+              if ($start_date && $end_date):
+                  // YYYY/MM/DD 形式の場合はスラッシュで分割
+                  list($start_year, $start_month, $start_day) = explode('/', $start_date);
+                  list($end_year, $end_month, $end_day) = explode('/', $end_date);
+
+                  // ゼロ埋めを削除（01 → 1 に変換）
+                  $start_month = intval($start_month);
+                  $start_day = intval($start_day);
+                  $end_month = intval($end_month);
+                  $end_day = intval($end_day);
+              ?>
 
               <p>
                 <?php
-                // 年が同じかどうか確認
-                if ($start_year === $end_year):
-                  // 年が同じ場合は開始年を省略
-                  echo esc_html("{$start_year}/{$start_month}/{$start_day} - {$end_month}/{$end_day}");
-                else:
-                  // 年が異なる場合はすべて表示
-                  echo esc_html("{$start_year}/{$start_month}/{$start_day} - {$end_year}/{$end_month}/{$end_day}");
-                endif;
-                ?>
+                 // 年が同じ場合は開始年を省略
+                 if ($start_year === $end_year):
+                     echo esc_html("{$start_year}/{$start_month}/{$start_day} - {$end_month}/{$end_day}");
+                 else:
+                     echo esc_html("{$start_year}/{$start_month}/{$start_day} - {$end_year}/{$end_month}/{$end_day}");
+                 endif;
+                 ?>
               </p>
 
               <?php else: ?>
               <p>日付範囲が設定されていません。</p>
               <?php endif; ?>
             </div>
-
 
             <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>
           </div>
