@@ -105,16 +105,13 @@
               <p class="campaign-card__price-old">
                 <?php echo esc_html(number_format($original_price)); ?>円
               </p>
-
               <p class="campaign-card__price-new">
                 <?php echo esc_html(number_format($discount_price)); ?>円
               </p>
-
               <?php else: ?>
               <p>価格情報が設定されていません。</p>
               <?php endif; ?>
             </div>
-
           </div>
           <div class="campaign-card__text-box md-none">
             <p class="campaign-card__text-main">
