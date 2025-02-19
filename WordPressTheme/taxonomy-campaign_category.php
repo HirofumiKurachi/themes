@@ -87,9 +87,29 @@
           <div class="campaign-card__price-campaign">
             <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
             <div class="campaign-card__price-box">
-              <p class="campaign-card__price-old"><?php the_field('original_price') ?></p>
-              <p class="campaign-card__campaign-price-new"><?php the_field('discount_price') ?></p>
+              <?php
+               // ACFの「キャンペーン価格」グループを取得
+               $campaign_price = get_field('campaign_price');
+
+               // データが取得できた場合のみ処理
+               if ($campaign_price):
+                   $original_price = $campaign_price['original_price'];
+                   $discount_price = $campaign_price['discount_price'];
+               ?>
+
+              <p class="campaign-card__price-old">
+                <?php echo esc_html(number_format($original_price)); ?>円
+              </p>
+
+              <p class="campaign-card__price-new">
+                <?php echo esc_html(number_format($discount_price)); ?>円
+              </p>
+
+              <?php else: ?>
+              <p>価格情報が設定されていません。</p>
+              <?php endif; ?>
             </div>
+
           </div>
           <div class="campaign-card__text-box md-none">
             <p class="campaign-card__text-main">
