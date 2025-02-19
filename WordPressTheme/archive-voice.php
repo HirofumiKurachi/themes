@@ -60,7 +60,33 @@ foreach ($desired_order as $slug):
           <div class="voice-card__container">
             <div class="voice-card__title-box">
               <div class="voice-card__title-box1">
-                <p class="voice-card__title-sub"><?php the_field('title_sub') ?></p>
+                <?php
+                  // ACFの「ユーザー情報」グループを取得
+                  $user_information = get_field('user_information');
+
+                  // データが取得できた場合のみ処理
+                  if ($user_information):
+                      $era = $user_information['era']; // 年代
+                      $sex = $user_information['sex']; // 性別
+
+                      // 出力用の文字列を作成
+                      $output = '';
+                      if ($era) {
+                          $output .= esc_html($era); // 例: "20代"
+                      }
+                      if ($sex) {
+                          // 性別がある場合にのみ (性別) を追加
+                          $output .= esc_html("({$sex})");
+                      }
+                  ?>
+                <p class="voice-card__title-sub">
+                  <?php echo $output; ?>
+                </p>
+
+                <?php else: ?>
+                <p class="voice-card__title-sub">ユーザー情報が設定されていません。</p>
+                <?php endif; ?>
+
                 <!-- ボイスカテゴリーを取得して表示 -->
                 <?php
                  $categories = get_the_terms(get_the_ID(), 'voice_category'); // カスタムタクソノミー取得
