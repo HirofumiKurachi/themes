@@ -84,29 +84,31 @@
             <p class="campaign-card__title"><?php echo esc_html($category_name); ?></p>
             <p class="campaign-card__title-sub-large"><?php the_title(); ?></p>
           </div>
+          <?php
+           // ACFの「キャンペーン価格」グループを取得
+           $campaign_price = get_field('campaign_price');
+
+           // 配列が取得できていて、かつ 'original_price' と 'discount_price' の両方が存在し、数値である場合のみ表示
+           if (!empty($campaign_price) && isset($campaign_price['original_price'], $campaign_price['discount_price']) && is_numeric($campaign_price['original_price']) &&
+            is_numeric($campaign_price['discount_price'])):
+            $original_price = (float) $campaign_price['original_price'];
+            $discount_price = (float) $campaign_price['discount_price'];
+            ?>
           <div class="campaign-card__price-campaign">
             <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
             <div class="campaign-card__price-box">
-              <?php
-               // ACFの「キャンペーン価格」グループを取得
-               $campaign_price = get_field('campaign_price');
-
-               // データが取得できた場合のみ処理
-               if ($campaign_price):
-                   $original_price = $campaign_price['original_price'];
-                   $discount_price = $campaign_price['discount_price'];
-               ?>
               <p class="campaign-card__price-old">
                 <?php echo esc_html(number_format($original_price)); ?>円
               </p>
               <p class="campaign-card__price-new">
                 <?php echo esc_html(number_format($discount_price)); ?>円
               </p>
-              <?php else: ?>
-              <p>価格情報が設定されていません。</p>
-              <?php endif; ?>
             </div>
           </div>
+          <?php else: ?>
+          <p>価格情報が設定されていません。</p>
+          <?php endif; ?>
+
           <div class="campaign-card__text-box md-none">
             <p class="campaign-card__text-main">
               <?php the_field('text_main') ?>

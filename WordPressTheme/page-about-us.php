@@ -40,6 +40,24 @@
   </div>
 </section>
 <!--ギャラリー-->
+<?php
+$gallery_images = SCF::get('gallery_images'); // カスタムフィールドの画像リストを取得
+$has_empty_image = false; // 画像が空のエントリがあるか判定するフラグ
+
+// 画像リストが空でない場合のみ処理
+if (!empty($gallery_images)) {
+  foreach ($gallery_images as $gallery_image) {
+    $image_url = wp_get_attachment_url($gallery_image['gallery-image']); // 画像URLを取得
+    if (empty($image_url)) {
+      $has_empty_image = true; // 画像が空の場合はフラグを true にする
+      break; // 1つでも空の画像があればループを抜ける
+    }
+  }
+}
+
+// 画像が1つでも空ならセクションを出力しない
+if (!$has_empty_image) :
+?>
 <section class="gallery gallery-top">
   <div class="gallery__inner inner">
     <div class="gallery__title section-title">
@@ -49,23 +67,14 @@
 
     <ul class="gallery__list gallery-list">
       <?php
-      $gallery_images = SCF::get('gallery_images'); // 繰り返しフィールドを取得
-      $display_count = 0; // 画像が表示されるたびに増やすカウンター
-
-      if ($gallery_images) :
-        foreach ($gallery_images as $gallery_image) :
-          $image_url = wp_get_attachment_url($gallery_image['gallery-image']); // 画像URLを取得
-          if ($image_url) :
-            $display_count++; // 画像が表示されるたびに増やす
+      $display_count = 0; // 画像カウンター
+      foreach ($gallery_images as $gallery_image) :
+        $image_url = wp_get_attachment_url($gallery_image['gallery-image']); // 画像URLを取得
       ?>
-      <li class="gallery-list__item js-modal-open" data-target="<?php echo $display_count; ?>">
-        <img src="<?php echo esc_url($image_url); ?>" alt="ギャラリー画像 <?php echo $display_count; ?>">
+      <li class="gallery-list__item js-modal-open" data-target="<?php echo esc_attr(++$display_count); ?>">
+        <img src="<?php echo esc_url($image_url); ?>" alt="ギャラリー画像 <?php echo esc_attr($display_count); ?>">
       </li>
-      <?php
-          endif;
-        endforeach;
-      endif;
-      ?>
+      <?php endforeach; ?>
     </ul>
   </div>
 
@@ -73,28 +82,24 @@
   <div class="gallery__modal gallery-modal">
     <ul class="gallery-modal__items">
       <?php
-      $display_count = 0; // こちらもリセット
-      if ($gallery_images) :
-        foreach ($gallery_images as $gallery_image) :
-          $image_url = wp_get_attachment_url($gallery_image['gallery-image']);
-          if ($image_url) :
-            $display_count++;
+      $display_count = 0; // カウンターをリセット
+      foreach ($gallery_images as $gallery_image) :
+        $image_url = wp_get_attachment_url($gallery_image['gallery-image']);
       ?>
-      <li class="gallery-modal__item js-modal js-modal-close" id="gallery-modal-<?php echo $display_count; ?>">
+      <li class="gallery-modal__item js-modal js-modal-close"
+        id="gallery-modal-<?php echo esc_attr(++$display_count); ?>">
         <div class="gallery-modal__inner">
           <div class="gallery-modal__img">
-            <img src="<?php echo esc_url($image_url); ?>" alt="ギャラリー画像 <?php echo $display_count; ?>">
+            <img src="<?php echo esc_url($image_url); ?>" alt="ギャラリー画像 <?php echo esc_attr($display_count); ?>">
           </div>
         </div>
       </li>
-      <?php
-          endif;
-        endforeach;
-      endif;
-      ?>
+      <?php endforeach; ?>
     </ul>
   </div>
 </section>
+<?php endif; ?>
+
 
 
 <?php get_footer(); ?>

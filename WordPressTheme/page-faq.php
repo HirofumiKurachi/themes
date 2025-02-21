@@ -22,15 +22,34 @@
   <div class="faq-page-accordion__inner inner">
     <div class="faq-page-accordion__container accordion-container">
       <?php
-// FAQの繰り返しフィールドを取得
-$faq_list = SCF::get('faq_list');
+       // FAQの繰り返しフィールドを取得
+       $faq_list = SCF::get('faq_list');
 
-if (!empty($faq_list)): ?>
+       // FAQリストがあり、かつ有効なデータが存在する場合のみ表示
+       if (!empty($faq_list)):
+
+         // 表示するFAQがあるかどうかをチェックするフラグ
+         $has_valid_faq = false;
+
+         // 一度ループを回して有効なFAQがあるか確認
+         foreach ($faq_list as $faq) {
+           if (!empty($faq['faq_question']) && !empty($faq['faq_answer'])) {
+             $has_valid_faq = true;
+             break; // 1つでも有効なデータがあれば表示可能
+           }
+         }
+
+         // 有効なFAQが1つでもあれば表示
+         if ($has_valid_faq):
+      ?>
       <div class="faq-page__accordion js-accordion">
         <div class="faq-page-accordion__inner inner">
           <div class="faq-page-accordion__container accordion-container">
 
-            <?php foreach ($faq_list as $faq): ?>
+            <?php foreach ($faq_list as $faq): 
+              // 両方の値が存在し、空でない場合のみ表示
+              if (!empty($faq['faq_question']) && !empty($faq['faq_answer'])): 
+            ?>
             <div class="faq-page-accordion__item accordion-item js-faq-page-accordion-item">
               <h3 class="faq-page-accordion__title js-faq-page-accordion-title">
                 <?php echo esc_html($faq['faq_question']); ?>
@@ -41,14 +60,21 @@ if (!empty($faq_list)): ?>
                 </p>
               </div>
             </div>
-            <?php endforeach; ?>
+            <?php 
+              endif; 
+            endforeach; 
+            ?>
           </div>
         </div>
       </div>
-      <?php endif; ?>
+      <?php 
+         endif; // $has_valid_faq チェック
+       endif; // !empty($faq_list) チェック
+      ?>
     </div>
   </div>
 </div>
+
 
 
 <?php get_footer(); ?>
