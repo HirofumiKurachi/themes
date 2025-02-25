@@ -42,7 +42,7 @@
                 <time class="blog-card__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
                 <h3 class="blog-card__text"><?php the_title(); ?></h3>
                 <p class="blog-card__text-sub">
-                  <?php the_content(); ?>
+                  <?php echo wp_trim_words(get_the_excerpt(), 85, '...'); ?>
                 </p>
               </div>
             </div>
